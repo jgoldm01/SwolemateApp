@@ -1,13 +1,13 @@
  SwoleMate
 ============
 
-Problem statement: How do you stay motivated while working out? how are you 
-held accountable to sticking to a workout plan? maybe your firends aren't at 
+Problem statement: How do you stay motivated while working out? How are you 
+held accountable to sticking to a workout plan? Maybe your firends aren't at 
 the same level of fitness or dont have the same goals as you. 
 
 **How do we solve the problem?**
-* web application, that allows users to find workout buddies by matching a 
-		series of criterion, and facilitating conversations between users. 
+* web application that allows users to find workout buddies by matching a 
+		series of criterion, and facilitating conversations between users
 * swoleMate will help you find someone with similar goals and capabilities 
 		(if thats what youre into) who you can be gym 
 		buddies/motivators/coaches/SWOLEMATES
@@ -37,7 +37,7 @@ Pick 5
 
 
 **Algorithms**
-* match people with similar criterion. 
+* match people with similar criterion
 	Each criterion has a weighted value, and calculates weighted euclydian 
 	distance between users. Whenever the calculated distance is less than
 	a certain constant, the users are displayed on each others' match-screens.
@@ -45,4 +45,4 @@ Pick 5
 	given time for a user. The best match will be placed first. 
 
 **Electronic mockups**
-* see attached image files
+* see image files
