@@ -48,3 +48,7 @@ Pick 5
 * see image file:
 
 ![](wireframe_mockup.jpg)
+
+#Comments by Ming
+* Pretty good idea
+* Is this a dating service?  You might as well turn this into one.
