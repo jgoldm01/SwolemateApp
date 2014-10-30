@@ -1,0 +1,31 @@
+Each user is stored as a json object. In creating the user’s match table, the 
+user’s json statistics are compared with other’s json statistics who also need 
+matches. (the number of matches will be stored in the json object, a user with 
+10 matches will not show up on anyone else’s match field).
+
+The matching algorithm involves weighting differences in the variables between 
+two users. when the total value of differences is below a certain threshold, the 
+users are matched together. 
+
+each member has different weighting mechanism:
+distance: the distance between the two user’s last login locations is calculated.
+ As a member, each user has their ‘max distance’, and the distance between the
+  two users must be less than the max distance. if it is not, the users do not
+   match and the rest of the algorithm does not need to be executed
+cardio vs strength: a very important factor, but not necessarily a make or break.
+ The selection of cardio or strength determines what metrics are important for a
+ user; for instance, track vs machine is important for cardio, freeweights vs
+ machine is important for strength. Perhaps the difference in this larger
+ workout preference will accentuate the importance of differences in their sub-
+ fields
+availability: this is also important, but not incredibly so. for every time the
+ users have in common with one another, they lose a certain amount of points.
+ this amount experiences diminishing returns however -- users that match on two
+ times get more than half the decrease of those that match on 4. 
+Duration: meh-importance, can be discussed among users but will affect weight
+Frequency: not important, because you don’t need to always work out with your
+swolemate
+
+example: (not the actual algorithm)
+if dist > user1.dist || dist > user2.dist
+	break;
