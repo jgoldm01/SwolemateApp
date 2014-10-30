@@ -1,0 +1,23 @@
+{
+  "User": {
+    "Info": {
+      "Name": "Scott Jacobson",
+      "Login": "ScottJacobson1",
+      "DOB": "11-06-93",
+      "Contact": {
+        "Phone": "555-555-5555",
+        "Email": "Scott.Jacobson@Tufts.edu"
+      }
+    },
+    "MatchingParams": {
+      "Type": "{Strength / Cardio / Both}",
+      "DistanceRequirement": "10 {Miles}",
+      "Location": "(coordinates)",
+      "Availability": {
+        "Days": "M T R F",
+        "Time": "{Morning / Afternoon / Night}",
+        "Duration": "1hr"
+      }
+    }
+  }
+}
