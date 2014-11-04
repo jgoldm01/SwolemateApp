@@ -1,0 +1,43 @@
+EXPECTED API ACTIONS for each page of Swolemate
+
+LOGIN/SIGNUP/HOMEPAGE
+	-OnLoad: [null]
+	-Login: send (Username, Password) -> <- (Session token) [Logs In]
+	-Register: send (Username, Password, Email) -> 
+		   <- (Confirm success, session token) [Creates User]
+	-Forgot Password? send (Email) -> 
+	<- (Confirm success)  [Sends reset password email]
+
+DASHBOARD
+	-OnLoad: (Session token) -> <- (return Goal history, Active goals--
+	strings, settings--booleans, User object)
+	OnClick of settings page: go to settings page: 
+	Redirect if no SM: (SmoleMate bool) -> 
+	<- (link to Getting Started)  [Redirect to Getting Started] 
+
+SWOLELATIONSHIP (between you and swolemate)
+	-OnLoad: send (Session token) -> <- return (Swolelationship object--
+	Goal History--strings, Active Goals--strings and booleans)
+	-Create Goals: send (New Goal--string and boolean) -> 
+	<- (Confirm new goal)
+	-Resolve goal: send (Goal check--boolean) -> <- (Confirm checked off)
+	-Message box: send(New message--string) -> 
+	<-returns(array of messages, including the new string) 
+		
+SETTINGS/EDIT PROFILE
+	-OnLoad: send(request the settings object) ->
+	 <- returns the Settings object (see your current settings)
+	-Edit settings (if no swolemate)
+	    -send (new settings object-booleans)
+	-Find my SwoleMate
+	    -request (user objects with matching settings/paramters)->
+	    <-returns array of user objects
+
+GETTING STARTED
+	-Email gives link to Getting Started Page
+	-OnLoad--show tutorial information
+	-redirect to the Settings page
+
+CREATE ACCOUNT
+	OnLoad: Asks for email and sends email to user
+		-send (email--string)->
