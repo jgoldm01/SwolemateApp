@@ -1,0 +1,89 @@
+FORMAT: 1A
+
+# SwoleMate
+The overview of the Swolemate API 
+
+# Group Swolemate
+Swolemate-related resources of the **Swolemate API**
+
+## Login and Account [/login]
+### Login and begin session [POST]
++ Request (application/json)
+
+        {
+            "username" : "ExampleUserName",
+            "password" : "ExamplePassword"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "session-token" : "dfspoaidjf098j43i"
+        }
+
+## Dashboard [/dashboard/{username}]
+### Get a user's dashboard, which returns the user's info and its swolationship [GET]
++ Parameters
+    + username (required, alphanumeric, `foobarjones1` ) ... `username` whose dashboard you are fetching.
+
++ Request (application/json)
+        
+        {
+            "session-token" : "asoifj9sa8jdioas"
+        }
+        
++ Response 200 (application/json)
+        
+        
+            {
+              "User": {
+                "Info": {
+                  "Name": "Scott Jacobson",
+                  "Avatar": "this_user_icon.png"
+                },
+                "MatchingParams": {
+                  "Type": "{Strength / Cardio / Both}",
+                  "DistanceRequirement": "10 {Miles}",
+                  "Location": "22.23232, 234.3432",
+                  "Frequency": "{1-2, 3-5, 6-7} Days"
+                },
+                "Swolationship_Info": {
+                  "Other_User_ID": "OtherUser55",
+                  "Swolationship_ID": "asd0f87ouiahero9"
+                }
+              },
+              "Swolationship": {
+                "Swolationship_ID": "asd98fpjioasdf",
+                "User_1_ID": "ScottJacobson1",
+                "User_2_ID": "OtherUser55",
+                "Goals": [
+                  {
+                    "ID": "dsaf9a8pudofiajls",
+                    "Name": "Example Goal Name",
+                    "User_1_Complete": true,
+                    "User_2_Complete": false
+                  }
+                ]
+              }
+            }
+        
+
+## Note [/notes/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
