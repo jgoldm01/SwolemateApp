@@ -1,0 +1,23 @@
+{
+"Swolationship": {
+    "Swolationship_ID": "asd98fpjioasdf",
+    "User_1_ID": "ScottJacobson1",
+    "User_2_ID": "OtherUser55",
+    "Goals": [
+      {
+        "ID": "dsaf9a8pudofiajls",
+        "Name": "Example Goal Name",
+        "User_1_Complete": true,
+        "User_2_Complete": false
+      }
+    ],
+    "Messages": [
+      {
+        "ID": "wef98jisofs",
+        "Timestamp": 23091238,
+        "From": "ScottJacobson1",
+        "Body": "\"Hey man! how are you?!\""
+      }
+    ]
+  }
+}
