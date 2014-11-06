@@ -68,13 +68,13 @@ Swolemate-related resources of the **Swolemate API**
             }
         
 
-## Note [/notes/{id}]
-A single Note object with all its details
+## Swolationship [/swolationship/{s_id}]
+A single Swolationship object with all its details including an array of Goals and an array of Messages
 
 + Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+    + s_id (required, alphanumeric, `34289f6c8eb5436fbb3a33ece845c61a`) ... MD5 hash `id` of the swolationship to perform action with. Has example value.
 
-### Retrieve a Note [GET]
+### Retrieve a Swolationship [GET]
 + Response 200 (application/json)
 
     + Header
@@ -85,5 +85,77 @@ A single Note object with all its details
 
             { "id": 2, "title": "Pick-up posters from post-office" }
 
-### Remove a Note [DELETE]
+### Remove a Swolationship [DELETE] 
 + Response 204
+
+### Goal [/swolationship/{s_id}/goal/{g_index}]
+A single goal object, which is a member of the `goals` array in a swolationship
+
++ Model
+
+    + Header
+        
+            Parent : s_id
+            Final-Index : g_index
+    + Body
+    
+            {
+              "ID": "dsaf9a8pudofiajls",
+              "Name": "Example Goal Name",
+              "Body": "Example goal body. This is a description you can type in",
+              "User": {
+                "UserName01": {
+                  "complete": false
+                },
+                "TheOtherUserName": {
+                  "complete": true
+                }
+              }
+            }
+
++ Parameters
+    + s_id (required, alphanumeric, `34289f6c8eb5436fbb3a33ece845c61a`) ... MD5 hash `id` of the swolationship to perform action with. Has example value.
+    + g_index (optional, numeric, `4`) ... numeric `index` of the swolationship's goals array to perform action with if action is not PUT. Has example value.
+
+
+####Get a Goal [GET]
++ Response 200 (application/json)
+        
+    [Goal][]
+
+####Create a Goal [PUT]
++ Request (application/json)
+
+
++ Response 201 (application/json)
+
+    [Goal][]
+
+#### Goal Completion [/swolationship/{s_id}/goal/{g_index}/{username}]
+Goal completion is signified by a POST in the `user_name` endpoint of a particular
+goal. A DELETE in the same endpoint will remove the completion. All requests
+return the updated Goal object.
+
++ Parameters
+    + s_id (required, alphanumeric, `34289f6c8eb5436fbb3a33ece845c61a`) ... MD5 hash `id` of the swolationship to perform action with.
+    + g_index (required, numeric, `4`) ... numeric `index` of the swolationship's goals array to perform action with if action is not PUT.
+    + username (required, alphanumeric, `foobarjones1` ) ... `username` whose goal completion you are modifying. Must be a participating user in the goal.
+
+#####Post a Goal Completion [POST]
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    [Goal][]
+    
+
+#####Remove a Goal Completion [DELETE]
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    [Goal][]
+
+
+
+
