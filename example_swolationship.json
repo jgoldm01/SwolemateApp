@@ -4,12 +4,32 @@
     "User_1_ID": "ScottJacobson1",
     "User_2_ID": "OtherUser55",
     "Goals": [
-      {
-        "ID": "dsaf9a8pudofiajls",
-        "Name": "Example Goal Name",
-        "User_1_Complete": true,
-        "User_2_Complete": false
-      }
+        {
+          "ID": "dsaf9a8pudofiajls",
+          "Name": "Example Goal Name",
+          "Body": "Example goal body. This is a description you can type in",
+          "User": {
+            "UserName01": {
+              "complete": false
+            },
+            "TheOtherUserName": {
+              "complete": true
+            }
+          }
+        },
+        {
+          "ID": "asd98fijsafsa",
+          "Name": "Example Goal Name 2",
+          "Body": "Example goal body 2. This is a description you can type in",
+          "User": {
+            "UserName01": {
+              "complete": false 
+            },
+            "TheOtherUserName": {
+              "complete": false
+            }
+          }
+        }
     ],
     "Messages": [
       {

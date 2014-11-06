@@ -1,0 +1,13 @@
+{
+  "ID": "dsaf9a8pudofiajls",
+  "Name": "Example Goal Name",
+  "Body": "Example goal body. This is a description you can type in",
+  "User": {
+    "UserName01": {
+      "complete": false
+    },
+    "TheOtherUserName": {
+      "complete": true
+    }
+  }
+}
