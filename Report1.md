@@ -1,17 +1,36 @@
-
+TEAM 8
+Progress Report for Nov 7th
 
 What was accomplished during the week 
-1. Finished the flow chart of how each page is linked to each other
+1. Finished flow chart of how each page is linked to other pages
+   (Content_Flow.png)
 2. Finished a list of expected API actions
+   (APIactions.txt)
 3. Designed a mock API on Apiary
-4. Finished full mock up of dash board 
-5. Finished mock dash board, swolationship and user json
+   (apiary.apib)
+4. Designed user object (example_user.json), swolelationship object(example_
+   swolelationship.json), goal object (example_goal.json)
+5. Set up Node.js backend (express, passport)
+6. Set up swolemate heroku 
+7. Mockup of what the Dashboard should look like in final product
+
 
 Challenges and issues team faced during the week
-1. We made an important decision to switch from being able to have more than 1 
-SwoleMates to only have 1 Swolemate
-2. We were unsure about what framework to use for login, and we decided to use 
-Passport
+1. We made the decision to switch to only having one Swolemate instead of 
+   being able to have multiple. There would only be one swolelationship page,
+   instead of multiple. Realized having multiple swolelationship pages was
+   too difficult
+2. We were unsure what frameworks to use for login. Decided on Passport
+3. We were unsure how to make every page fit together. Designed the API on 
+   apiary so that we could get a better idea of what information we could 
+   expect to send and receive
+4. We had trouble agreeing on the overall flow of the page (content-flow) and
+   what the dashboard would look like
 
-Goals
-(To be determined)
+Goals for next week
+1. Get login page working with Passport
+2. Build the actual API
+3. Be able to create a User object and send that information to data store,
+   probably MongoDB
+4. Learn how to use AngularJS as our frontend framework
+5. Get Dashboard html started
