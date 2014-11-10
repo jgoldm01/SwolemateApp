@@ -34,3 +34,8 @@ Goals for next week
    probably MongoDB
 4. Learn how to use AngularJS as our frontend framework
 5. Get Dashboard html started
+
+Comments by Ming
+* What's the Heroku URL?
+* Why Angular? Nothing wrong with the choice but what's the rationale?
+* Cool that you're going with Passport.  Let me know how that goes.
