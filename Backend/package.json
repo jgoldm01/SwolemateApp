@@ -8,6 +8,16 @@
                 "express": "latest",
                 "mongodb": "latest",
                 "body-parser": "latest",
-                "passport-heroku" : "latest"
+                "passport": "latest",
+                "mongoose": "latest",
+                "jade": "latest",
+                "passport-local": "latest",
+                "passport-local-mongoose": "latest",
+                "passport-heroku" : "latest",
+                "morgan": "latest",
+                "method-override": "latest",
+                "cookie-parser": "latest",
+                "express-session": "latest",
+                "errorhandler": "latest"
         }
 }

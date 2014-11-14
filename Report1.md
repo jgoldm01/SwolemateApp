@@ -2,6 +2,7 @@ TEAM 8
 Progress Report for Nov 7th
 
 What was accomplished during the week 
+
 1. Finished flow chart of how each page is linked to other pages
    (Content_Flow.png)
 2. Finished a list of expected API actions
@@ -16,6 +17,7 @@ What was accomplished during the week
 
 
 Challenges and issues team faced during the week
+
 1. We made the decision to switch to only having one Swolemate instead of 
    being able to have multiple. There would only be one swolelationship page,
    instead of multiple. Realized having multiple swolelationship pages was
