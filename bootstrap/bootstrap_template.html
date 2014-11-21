@@ -38,7 +38,6 @@
           <ul class="nav navbar-nav">
             <li class="btn-small btn-info"><a href="#">SWOLEMATE</a></li>
             <li><a href="#about">Home </a></li>
-            <li><a href="#contact">Swolationships &raquo;</a></li>
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -77,16 +76,65 @@
         <p> Swolemate's name</p>
         <br/> 
         <p> create a goal </p>
+<!--Box for creating goal text -->
+	      <label for="createGoal" class="sr-only">New Goal</label>
+              <input type="goal" id="createGoal" class="form-control" placeholder="New Goal" required autofocus>
+<!--Button to submit the goal -->
+              <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
 
+	<p>Current goals</p>
+	<p>Messages</p>
+<!--Chat box, hopefully -->
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="btn-panel btn-panel-conversation">
+                <a href="" class="btn  col-lg-6  send-message-btn pull-right" role="button"><i class="fa fa-plus"></i> New Message</a>
+            </div>
         </div>
-        <div class="col-md-4">
+    </div>
+     
+ <!-- end of chatbox-->
+        </div> <!--Not sure which opening tag corresponds to this one -->
+        
+
+	<div class="col-md-4">
           <p style="text-decoration:underline;">About me</p>
           <p> YOUR NAME HERE</p>
-        </div>
+       
+
+	<div> <!--Div for setting section -->
+	  <p>Distance </p>
+	  <div class="btn-group" role="group" aria-label="Distance">
+	    <button type="button" class="btn btn-default">Less than 5 miles</button>
+	    <button type="button" class="btn btn-default">5-10 miles</button>
+	    <button type="button" class="btn btn-default">No preference</button>
+	  </div>
+
+	  <p>Exercise</p>
+	  <div class="btn-group" role="group" aria-label="Exercise">
+	    <button type="button" class="btn btn-default">Strength</button>
+	    <button type="button" class="btn btn-default">Cardio</button>
+	    <button type="button" class="btn btn-default">Both</button>
+	  </div>
+
+	  <p>Frequency </p>
+	  <div class="btn-group" role="group" aria-label="Frequency">
+	    <button type="button" class="btn btn-default">1-2 days/week</button>
+	    <button type="button" class="btn btn-default">3-4 days/week</button>
+	    <button type="button" class="btn btn-default">5-7 days/week</button>
+	  </div>
+
+	</div>
+	</div>
+
+<!--START goal history column -->
         <div class="col-md-4">
           <p>Goal History</p>
           <img style="max-width:200px;" src="success.jpg" alt="the journey of a thousand miles begins with a single step">
           <br/><br/>
+
+	  <p>Completed Goals</p>
+	  </br></br>
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">About the Developers</a>
 
         </div>
