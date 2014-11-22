@@ -24,7 +24,9 @@ app.use(bodyParser.json());
 app.use(logger("short"));
 app.use(methodOverride());
 app.use(cookieParser('your secret here'));
-app.use(session({secret: 'keyboard cat'}));
+app.use(session({secret: 'get swole',
+                 saveUninitialized: true,
+                 resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,7 +42,7 @@ passport.deserializeUser(Account.deserializeUser());
 var uristring = 
 process.env.MONGOLAB_URI || 
 process.env.MONGOHQ_URL || 
-'mongodb://localhost/HelloMongoose';
+'mongodb://localhost/SwolemateMongoose';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) { 
@@ -56,17 +58,6 @@ require('./routes')(app);
 app.listen(app.get('port') || process.env.PORT || 3000, function(){
   console.log(("Express server listening on port " + app.get('port')))
 });
-
-
-
-// Mongo initialization, setting up a connection to a MongoDB  (on Heroku or localhost)
-/*var mongoUri = process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/whereintheworld'; // comp20 is the name of the database we are using in MongoDB
-var mongo = require('mongodb');
-var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
-  db = databaseConnection;
-});*/
 
 
 
