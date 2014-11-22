@@ -1,10 +1,13 @@
 var passport = require('passport');
 var Account = require('./models/account');
 
+
+
 module.exports = function (app) {
 
+  var Swolemate = require('./swolemate.js')(app);
+
   app.get('/', function (req, res) {
-      console.log("hey i got a request!");
       res.render('index', { user : req.user });
   });
 
