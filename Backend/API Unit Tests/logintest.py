@@ -9,7 +9,7 @@ from json import dumps
 def main():
     values = dumps({
         "username" : "ExampleUserName",
-        "password" : "NOW IM FUCKING UP"
+        "password" : "Example Password"
     })
     headers = {"Content-Type": "application/json"}
     dummyAPIURL = "http://private-e894f-swolemate.apiary-mock.com"

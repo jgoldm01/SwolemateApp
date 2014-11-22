@@ -50,4 +50,26 @@ module.exports = function (app) {
       res.status(200).send("pong!");
   });
 
+  app.get('/swolationship/:id([0-9a-f]{24})', function(req, res){
+      var idRequested = req.params['id'];
+      
+  });
+
+  app.get('/dashboard', function(req, res) {
+      var user = req.user;
+
+      function sendEmptyDashboard () {
+        res.render('dashboard', {});
+
+      }
+
+      if (user) {
+        Swolemate.createDashboardForUser(user, sendEmptyDashboard);
+      }
+      else {
+        res.redirect('/');
+      }
+
+  });
+
 };
