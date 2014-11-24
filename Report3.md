@@ -19,3 +19,10 @@ find a swolemate
 1. Convert dashboard static html to React template (instead of AngularJS)
 2. Finish implementing RESTful api calls
 3. Start static html for find a swolemate page
+
+
+# Comments by Ming
+1. Very good that you are scoping down the project.  That's not a bad thing at all.  Focus on functionality.  Don't focus on security (e.g., password encryption) because this is a _prototype_.
+2. "Tried to use express, but there was a new version which kept breaking, " --sigh, I feel your pain.  It is what it is.
+3. Have you checked out a regex cheat sheet? See http://regexlib.com/CheatSheet.aspx?AspxAutoDetectCookieSupport=1.  Also http://rubular.com/ is a great tool to test regular expressions.
+4. Why React?
