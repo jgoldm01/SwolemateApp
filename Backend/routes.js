@@ -57,7 +57,7 @@ module.exports = function (app) {
     Swolemate.initMatchingParams(user, returnJSON);
   });
 
-  app.get('/echouser', function(req, res) {
+  app.get('/api/user', function(req, res) {
     var user = req.user;
     if (!user) {
       res.redirect('/?error=nologin');
@@ -65,7 +65,7 @@ module.exports = function (app) {
     res.json(user);
   });
 
-  app.get('/echouser/matchingparams', function (req, res) {
+  app.get('/api/user/matchingparams', function (req, res) {
     var user = req.user;
     if (!user) {
       res.redirect('/?error=nologin');
@@ -75,11 +75,13 @@ module.exports = function (app) {
     });
   });
 
-  app.post('/matchingparams', function (req, res) {
+  app.post('/api/user/matchingparams', function (req, res) {
     var user = req.user;
     if (!user) {
       res.redirect('/?error=nologin');
     }
+
+    
 
   });
 
@@ -93,12 +95,12 @@ module.exports = function (app) {
     res.status(200).send("pong!");
   });
 
-  app.get('/swolationship/:id([0-9a-f]{24})', function(req, res){
+  app.get('/api/swolationship/:id([0-9a-f]{24})', function(req, res){
     var idRequested = req.params['id'];
     
   });
 
-  app.get('/dashboard', function(req, res) {
+  app.get('/api/dashboard', function(req, res) {
     var user = req.user;
     if (!user) {
       res.redirect('/?error=nologin');
