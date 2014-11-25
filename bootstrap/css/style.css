@@ -1,3 +1,22 @@
+.boxy {
+	    border: 2px solid #eee;
+}
+
+.gimme {
+		border: 2px solid #eee;
+}
+
+table {
+	width:100%;
+}
+
+.container{
+	background-color: pink;
+	opacity:1.0;
+	width:100%;
+	height:;
+}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,16 +92,16 @@
            <br/> 
            <p> create a goal </p>
 
-        <!--Box for creating goal -->
-        <label for="createGoal" class="sr-only">New Goal</label>
+	      <!--Box for creating goal -->
+	      <label for="createGoal" class="sr-only">New Goal</label>
               <input type="goal" id="createGoal" class="form-control" placeholder="New Goal" required autofocus>
 
-        <!--Button to submit the goal -->
+	      <!--Button to submit the goal -->
               <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
             </br></br>
 
       <div class="boxy col-lg-3">
-        <p>Current Goals:</p>
+	      <p>Current Goals:</p>
         <!-- This table should alternate between green and active colors-->
         <table class="table  table-striped">
         <tr class = "success"> 
@@ -99,84 +118,84 @@
         </tr>
         </table>
       </div>
-        </br></br> <!--probably not the best way to style -->
+	      </br></br> <!--probably not the best way to style -->
 
 
-        <!--Chat box, hopefully -->
-  <div class="boxy">
-    <div class="col-lg-3">
+	      <!--Chat box, hopefully -->
+	<div class="boxy">
+		<div class="col-lg-3">
       
-      <div class="btn-panel btn-panel-conversation">
+		  <div class="btn-panel btn-panel-conversation">
         <p> Messages </p>
           <a class="btn send-message-btn pull-right" role="button"> New Message</a>
-      </div>
-    </div>
-        
+		  </div>
+		</div>
+	      
 
-        <!--start jsfiddle example-->
-        <div id="fixed">
-    <div class="fixedContent"></div>
-    <div class="chatbox">
-      <textarea class="userinput" style="height: px; ">Type here...</textarea>            
-    </div>
-  </div>
+	      <!--start jsfiddle example-->
+	      <div id="fixed">
+		<div class="fixedContent"></div>
+		<div class="chatbox">
+		  <textarea class="userinput" style="height: px; ">Type here...</textarea>            
+		</div>
+	</div>
       </div>
-        <!--end jsfiddle example-->
+	      <!--end jsfiddle example-->
      
-        <!-- end of chatbox-->
-     </div> <!--closing tag for swolelationship column -->
+	      <!-- end of chatbox-->
+	   </div> <!--closing tag for swolelationship column -->
 
 
-  <div class="col-md-4"> <!--opening tag for about me and settings column-->
+	<div class="col-md-4"> <!--opening tag for about me and settings column-->
           <p style="text-decoration:underline;">About me</p>
           <p> YOUR NAME HERE</p>
        
 
-    <div> <!--Div for settings section -->
+	  <div> <!--Div for settings section -->
       <table class="table table-bordered">
-      <tr class="success">
+	    <tr class="success">
         <td colspan=100%>Distance</td>
       </tr>
       <tr class="active">
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Short
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Short
+	      </label>
       </td>
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Medium
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Medium
+	      </label>
       </td>
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Long
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Long
+	      </label>
       </td>
       </tr>
       </table>
 
     <table class="table table-bordered">
     <tr class="success">
-      <td colspan=100%>Exercise</td>
+	    <td colspan=100%>Exercise</td>
     </tr>
     <tr class="active">
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Strength
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Strength
+	      </label>
       </td>
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Cardio
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Cardio
+	      </label>
       </td>
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">Both
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">Both
+	      </label>
       </td>
-    </tr>
+	  </tr>
   </table>
 
   <table class="table table-bordered">
@@ -185,38 +204,38 @@
     </tr>
     <tr class="active">
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1-2 days / week
-        </label>
-      </td>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1-2 days / week
+	      </label>
+	    </td>
       <td>
         <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 3-4 days / week
-        </label>
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 3-4 days / week
+	      </label>
       </td>
       <td>
-        <label class="radio-inline">
-    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 5-7 days / week
-        </label>
+	      <label class="radio-inline">
+		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 5-7 days / week
+	      </label>
       </td>
     </tr>
   </table>
-    </div> <!-- closing tag for settings section-->
-  </div> <!-- closing tag for about me column-->
+	  </div> <!-- closing tag for settings section-->
+	</div> <!-- closing tag for about me column-->
 
-  <!--START goal history column -->
+	<!--START goal history column -->
         <div class="col-md-4">
           <p>Goal History</p>
           <img style="max-width:200px;" src="success.jpg" alt="the journey of a thousand miles begins with a single step">
           <br/><br/>
   <div class ="boxy col-md-12">
-    <p>Completed Goals:</p>
+	  <p>Completed Goals:</p>
     <table class="table table-bordered">
       <tr class="success"><td>NO GOALS COMPLETED YOU FAIL</td></tr>
       <tr class="active"><td>MUAHAHAHA</td></tr>
     </table>
   </div>
-    </br></br>
+	  </br></br>
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">About the Developers</a>
 
         </div> <!--end goal history column-->
