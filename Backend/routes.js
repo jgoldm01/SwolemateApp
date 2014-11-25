@@ -8,12 +8,16 @@ module.exports = function (app) {
   var Swolemate = require('./swolemate.js')(app);
 
   app.get('/', function (req, res) {
-      res.render('index', { user : req.user });
+    var display = '';
+    if (req['query']['error'] == 'nologin') {
+      display = "Error: please login before proceeding"; 
+    }
+    res.render('index', { user : req.user, display : display });
   });
 
   app.get('/register', function(req, res) {
       res.render('register', { });
-  });
+  }); 
 
   app.post('/register', function(req, res) {
     Account.register(
@@ -26,7 +30,7 @@ module.exports = function (app) {
         }
         console.log("Registered");
         passport.authenticate('local', 
-                              { successRedirect: '/',
+                              { successRedirect: '/newuser',
                                 failureRedirect: '/login' })(req,res);
         
     });
@@ -38,6 +42,24 @@ module.exports = function (app) {
 
   app.post('/login', passport.authenticate('local'), function(req, res) {
       res.redirect('/');
+  });
+
+  app.get('/newuser', function(req, res) {
+      var user = req.user;
+      if (!user) {
+        res.redirect('/?error=nologin');
+      }
+      user = Account(user);
+      user.populate();
+      console.log(user);
+  });
+
+  app.post('/matchingparams', function (req, res) {
+      var user = req.user;
+      if (!user) {
+        res.redirect('/?error=nologin');
+      }
+
   });
 
   app.get('/logout', function(req, res) {
@@ -58,17 +80,14 @@ module.exports = function (app) {
   app.get('/dashboard', function(req, res) {
       var user = req.user;
 
+      if (!user) {
+        res.redirect('/?error=nologin');
+      }
+
       function sendEmptyDashboard () {
         res.render('dashboard', {});
-
       }
-
-      if (user) {
         Swolemate.createDashboardForUser(user, sendEmptyDashboard);
-      }
-      else {
-        res.redirect('/');
-      }
 
   });
 
