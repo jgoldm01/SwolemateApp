@@ -44,7 +44,7 @@ module.exports = function (app) {
     res.redirect('/');
   });
 
-  app.get('/newuser', function(req, res) {
+  app.get('/getstarted', function(req, res) {
     var user = req.user;
     if (!user) {
       res.redirect('/?error=nologin');
@@ -81,6 +81,15 @@ module.exports = function (app) {
       res.redirect('/?error=nologin');
     }
 
+    function echoJSON (err, finalJSON) {
+      if (err) {
+        res.status(500);
+        return res.json(err);
+      }
+      res.json(finalJSON);
+    }
+
+    Swolemate.postMatchingParams(req, echoJSON);
     
 
   });

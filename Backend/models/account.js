@@ -7,11 +7,10 @@ var MatchingParams = require('./matchingparams');
 var Swolationship = require('./swolationship');
 
 var Account = new Schema({
-    username: String,
-    password: String,
-    paired: Boolean,
-    swolationship_id: {type: ObjectId, ref: 'Swolationship'},
-    matching_params: {type: ObjectId, ref: 'MatchingParams'} 
+  username: String,
+  password: String,
+  swolationship_id: {type: ObjectId, ref: 'Swolationship'},
+  matching_params: {type: ObjectId, ref: 'MatchingParams'} 
 });
 
 Account.plugin(passportLocalMongoose);
