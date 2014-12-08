@@ -20,6 +20,8 @@ html
     if (user)
       p You are currently logged in as #{user.username}
       a(href="/logout") Logout
+    if (display)
+      .col-md-2= display
 
   script(src='http://code.jquery.com/jquery.js')
   script(src='js/bootstrap.min.js')
