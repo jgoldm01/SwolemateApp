@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var Goal = new Schema({
-    name: String,
-    body: String,
-    complete: Boolean,
+name: String,
+body: String,
+complete: Boolean,
 
 })
 
