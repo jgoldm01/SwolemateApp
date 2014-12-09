@@ -95,7 +95,21 @@ app.post('/register', function(req, res) {
 	 }
 
 	 Swolemate.postMatchingParams(req, echoJSON);
-	 
+  });
+
+//This is the API endpoint for dashboard, which sends back the fully populated
+//user account JSON. Not to be confused with the HTML endpoint for dashboard,
+//which sends back the template for the dashboard page 
+  app.get('/api/dashboard', function(req, res) {
+   var user = req.user;
+   if (!user) {
+    res.redirect('/?error=nologin');
+   }
+
+   function sendEmptyDashboard () {
+    res.render('dashboard', {});
+   }
+   Swolemate.createDashboardForUser(user, sendEmptyDashboard);
 
   });
 
@@ -114,20 +128,6 @@ app.post('/register', function(req, res) {
 	 
   });
 
-//This is the API endpoint for dashboard, which sends back the fully populated
-//user account JSON. Not to be confused with the HTML endpoint for dashboard,
-//which sends back the template for the dashboard page 
-  app.get('/api/dashboard', function(req, res) {
-	 var user = req.user;
-	 if (!user) {
-		res.redirect('/?error=nologin');
-	 }
 
-	 function sendEmptyDashboard () {
-		res.render('dashboard', {});
-	 }
-	 Swolemate.createDashboardForUser(user, sendEmptyDashboard);
-
-  });
 
 };
