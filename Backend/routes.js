@@ -58,26 +58,41 @@ app.post('/register', function(req, res) {
 	 Swolemate.initMatchingParams(user, returnJSON);
   });
 
+//This is the HTML endpoint for Dashboard, which sends back the template,
+//rendered in jade, of the dashboard, to be populated by angular's call to
+//the dashboard API
+  app.get('/dashboard', function(req, res) {
+    var user = req.user;
+    if (!user) {
+      res.redirect('/?error=nologin');
+    }
+
+    function sendEmptyDashboard () {
+      res.render('dashboard', {});
+    }
+
+    Swolemate.createDashboardForUser(user, sendEmptyDashboard);
+  });
 
 
 //API ENDPOINTS - ALL SEND JSON BACK
 
   app.get('/api/user', function(req, res) {
-	 var user = req.user;
-	 if (!user) {
-		res.redirect('/?error=nologin');
-	 }
-	 res.json(user);
+	  var user = req.user;
+	  if (!user) {
+		  res.redirect('/?error=nologin');
+	  }
+	  res.json(user);
   });
 
   app.get('/api/user/matchingparams', function (req, res) {
-	 var user = req.user;
-	 if (!user) {
-		res.redirect('/?error=nologin');
-	 }
-	 Account(user).populate('matching_params', function(err, mp) {
-		res.json(mp.matching_params);
-	 });
+	  var user = req.user;
+	  if (!user) {
+		  res.redirect('/?error=nologin');
+	  }
+	  Account(user).populate('matching_params', function(err, mp) {
+		  res.json(mp.matching_params);
+	  });
   });
 
   app.post('/api/user/matchingparams', function (req, res) {
@@ -101,16 +116,17 @@ app.post('/register', function(req, res) {
 //user account JSON. Not to be confused with the HTML endpoint for dashboard,
 //which sends back the template for the dashboard page 
   app.get('/api/dashboard', function(req, res) {
-   var user = req.user;
-   if (!user) {
+    var user = req.user;
+    if (!user) {
     res.redirect('/?error=nologin');
-   }
+    }
 
-   function sendEmptyDashboard () {
-    res.render('dashboard', {});
-   }
-   Swolemate.createDashboardForUser(user, sendEmptyDashboard);
+    function returnJSON(err, jsonData) {
+      if (err) {throw err};
+      res.json(jsonData);
+    };
 
+   Swolemate.createDashboardForUser(user, returnJSON);
   });
 
   app.get('/logout', function(req, res) {
@@ -119,13 +135,12 @@ app.post('/register', function(req, res) {
   });
 
   app.get('/ping', function(req, res){
-	 console.log("pinging");
-	 res.status(200).send("pong!");
+	  console.log("pinging");
+	  res.status(200).send("pong!");
   });
 
   app.get('/api/swolationship/:id([0-9a-f]{24})', function(req, res){
-	 var idRequested = req.params['id'];
-	 
+	  var idRequested = req.params['id'];
   });
 
 
