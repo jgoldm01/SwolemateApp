@@ -14,12 +14,27 @@ var Account = new Schema({
 });
 
 
+Account.methods.validate = function(password) {
+	if(password == this.password) {
+		err = 0;
+		// create sessionToken
+	} else {
+		err = 1;
+	}
+
+	return { error: err, sessionToken: token}
+}
+
+
+
+
 /*
 Need methods:
-- check login + password (login, pw)->(success message, session token)
-- register/create account (login, pw, email)->(success message, then check login)
-- forgot password (just put a dummy link)
+- check login + password (pw)->(error?, session token)
 
+
+- forgot password (just put a dummy link)
+- register/create account (login, pw, email)->(error?, then check login)
 */
 
 

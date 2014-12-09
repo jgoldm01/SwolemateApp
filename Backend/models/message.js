@@ -13,7 +13,6 @@ body: String,
 
 /*
 Need methods:
-- add new message (message)->(history of messages)
 
 */
 

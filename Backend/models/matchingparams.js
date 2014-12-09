@@ -15,8 +15,7 @@ module.exports = mongoose.model('MatchingParams', MatchingParams);
 
 /* 
 Methods
-- Initialization 
-- Query Schema: ()
+- Initialization (values) -> ()
 
 
 
