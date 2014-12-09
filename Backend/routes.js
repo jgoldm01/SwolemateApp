@@ -58,6 +58,10 @@ app.post('/register', function(req, res) {
 	 Swolemate.initMatchingParams(user, returnJSON);
   });
 
+
+
+//API ENDPOINTS - ALL SEND JSON BACK
+
   app.get('/api/user', function(req, res) {
 	 var user = req.user;
 	 if (!user) {
@@ -110,6 +114,9 @@ app.post('/register', function(req, res) {
 	 
   });
 
+//This is the API endpoint for dashboard, which sends back the fully populated
+//user account JSON. Not to be confused with the HTML endpoint for dashboard,
+//which sends back the template for the dashboard page 
   app.get('/api/dashboard', function(req, res) {
 	 var user = req.user;
 	 if (!user) {
