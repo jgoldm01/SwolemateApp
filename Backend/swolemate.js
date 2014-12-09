@@ -22,10 +22,10 @@ postMatchingParams: function(req, callback) {
 populateDefaultMatchingParams: function(req, callback) {
 			var currentUser = req.user;
 			var defaultMatchParams = new MatchingParams({
-focus: "Both",
-lat: -42,
-lng: 31,
-frequency: "1-2 Days"
+        focus: "Both",
+        lat: -42,
+        lng: 31,
+        frequency: "1-2 Days"
 			});
 			defaultMatchParams.save(
 			function(err) {
@@ -38,10 +38,7 @@ createDashboardForUser: function (currentUser, callback) {
 			console.log('generating dashboard');
 			console.log(currentUser);
 			
-			callback();
-		}
-
-
+			cal--
 	}
 
 }
