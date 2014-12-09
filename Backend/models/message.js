@@ -9,4 +9,13 @@ body: String,
 	created_at: Date 
 })
 
+
+
+/*
+Need methods:
+- add new message (message)->(history of messages)
+
+*/
+
+
 module.exports = mongoose.model('Message', Message);

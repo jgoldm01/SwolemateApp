@@ -13,4 +13,15 @@ goals: [Goal],
 messages: [Message],
 })
 
+
+/*
+Need methods:
+- on load (session token)->(message history, active (incomplete) goals, goal history)
+- 
+
+*/
+
+
+
+
 module.exports = mongoose.model('Swolationship', Swolationship);

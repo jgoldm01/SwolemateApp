@@ -5,8 +5,17 @@ var ObjectId = Schema.ObjectId;
 var Goal = new Schema({
 name: String,
 body: String,
-complete: Boolean,
-
+complete: Boolean
 })
+
+
+
+/*
+Need methods:
+
+
+*/
+
+
 
 module.exports = mongoose.model('Goal', Goal);

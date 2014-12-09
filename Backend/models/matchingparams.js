@@ -10,4 +10,15 @@ lng: Number,
 frequency: {type: String, enum: ["1-2 Days","3-5 Days","5-7 Days"]}
 });
 
+
+
+
+/*
+Need methods:
+
+
+*/
+
+
+
 module.exports = mongoose.model('MatchingParams', MatchingParams);
