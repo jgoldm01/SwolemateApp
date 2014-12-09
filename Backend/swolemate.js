@@ -38,7 +38,7 @@ createDashboardForUser: function (currentUser, callback) {
 			console.log('generating dashboard');
 			console.log(currentUser);
 			
-			cal--
+			callback();
 	}
 
 }
