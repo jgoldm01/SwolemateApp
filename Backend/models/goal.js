@@ -4,7 +4,7 @@ var ObjectId = Schema.ObjectId;
 
 var Goal = new Schema({
 name: String,
-complete: Boolean,
+complete: { type: Boolean, default: false },
 })
 
 Goal.methods.check = function() {

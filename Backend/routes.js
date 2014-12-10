@@ -225,8 +225,30 @@ module.exports = function (app) {
   });
 
 
-  app.get('/api/swolationship/goals/completed', function(req, res){
-    //get a list of all completed goals
+  app.get('/api/swolationship/goal', function(req, res){
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function sendBackJSON(err, data) {
+      if (err) {return console.error(err)}
+
+      res.json(data);
+    }
+    req.user.populate('swolationship', function(err, populatedCurrentUser) {
+      if (populatedCurrentUser.swolationship == "undefined"){
+        console.error("No swolationship exists!");
+        console.error(populatedCurrentUser);
+        return res.json({error: "no swolationship"}); }
+
+      populatedCurrentUser.swolationship.populate('user1', function(err, populatedSwolationship) {
+        populatedSwolationship.populate('user2', function(err, populatedSwolationship) {
+          populatedSwolationship.populate('goals', function(err, populatedSwolationship){
+            res.json(populatedSwolationship.goals);
+          });
+        });
+      });
+    })
 
   });
 
