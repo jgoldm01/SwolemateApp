@@ -4,10 +4,6 @@
         "engines": {
             "node" : "0.10.x"
         },
-        "repository": {
-            "type":"git",
-            "url":"https://github.com/tuftsdev/comp20-f2014-team8"
-        },
         "dependencies": {
                 "express": "latest",
                 "mongodb": "latest",
@@ -23,6 +19,6 @@
                 "cookie-parser": "latest",
                 "express-session": "latest",
                 "errorhandler": "latest",
-                "async": "latest" 
+                "async": "latest"
         }
 }
