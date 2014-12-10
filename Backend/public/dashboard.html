@@ -8,6 +8,8 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/dashboard.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -116,19 +118,14 @@
 
 	  <div> <!--Div for settings section -->
 
-	    <p><b>Distance:</b></p>
-	    <div>
-        <p> {{user.matchingparams.distance}} </p>
-	    </div>
-
 	    <p><b>Exercise:</b></p>
 	    <div>
-        <p> {{user.matchingparams.focus}}
+        <p> {{user.matching_params.focus}}
 	    </div>
 
 	    <p><b>Frequency:</b></p>
 	    <div>
-        <p> {{user.matchingparams.frequency}}
+        <p> {{user.matching_params.frequency}}
 	    </div>
 	  </div> <!-- closing tag for settings section-->
 	</div> <!-- closing tag for about me column-->

@@ -1,27 +1,6 @@
 var dashBoard = angular.module('dashBoard', []);
 
 dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
-  // $scope.goals = [
-  //   {'name': 'Nexus S',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': true},
-  //  {'name': 'Nexus S',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': true},
-  //  {'name': 'Nexus S',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': true},
-  //  {'name': 'currentGoals',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': false},
-  //  {'name': 'currentGoals S',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': false},
-  //  {'name': 'currentGoals S',
-  //    'body': 'Fast just got faster with Nexus S.',
-  //  'complete': false}
-  // ];
-
 
   // $scope.user = 
   //   {'username': 'Android',
