@@ -22,10 +22,21 @@ Account.methods.getClosestSwolemates = function(allSwolemates) {
 		var tempDistance = currentAccount.getDistanceFrom(allSwolemates[i]);
 		console.log(tempDistance);
 		allSwolemates[i].distanceTo = tempDistance; 
-
 	}
+	allSwolemates.sort(compareDistances);
 
-	return closestSwolemates;
+	return allSwolemates;
+}
+
+function compareDistances(personA, personB) {
+  if (personA['distanceTo'] < personB['distanceTo']) {
+    return -1;
+  }
+  if (personA['distanceTo'] > personB['distanceTo']) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
 }
 
 Account.methods.getDistanceFrom = function(otherSwolemate) {

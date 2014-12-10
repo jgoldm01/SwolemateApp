@@ -35,7 +35,7 @@ module.exports = function (app) {
   			}
   			console.log("Registered");
   			passport.authenticate('local', 
-  							{ successRedirect: '/newuser',
+  							{ successRedirect: '/getstarted',
   							failureRedirect: '/login' })(req,res);
   		}
   	);
@@ -62,14 +62,10 @@ module.exports = function (app) {
   app.get('/getstarted', function(req, res) {
 	  var user = req.user;
 	  if (!user) {
-		  res.redirect('/?error=nologin');
+		  return res.redirect('/?error=nologin');
 	  }
 
-	  function returnJSON(err, jsonData) {
-		  if (err) {throw err};
-		  res.json(jsonData);
-	  };
-	  Swolemate.initMatchingParams(user, returnJSON);
+    res.render('getstarted');
   });
 
   //This is the HTML endpoint for Dashboard, which sends back the template,
@@ -94,7 +90,8 @@ module.exports = function (app) {
       return res.redirect('/?error=nologin');
     }
 
-    
+
+
   });
 
 //             ----                               ----
@@ -166,6 +163,29 @@ module.exports = function (app) {
     };
 
    Swolemate.createDashboardForUser(user, returnJSON);
+  });
+
+  app.get('/api/swolefinder', function(req, res) {
+    
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function echoJSON(err, data) {
+      if (err) {
+        console.error(err);
+        return res.send(500);
+      }
+      res.json(data);
+    }
+
+    Swolemate.listPossibleSwolemates(echoJSON);
+
+    //get list of all accounts without a swolationship
+    //populate matchingparams for all those accounts
+    //list matchingparams
+    //sort matchingparams by distance from current user
+
   });
 
   app.get('/api/swolationship/:id([0-9a-f]{24})', function(req, res){

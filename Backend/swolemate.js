@@ -35,6 +35,20 @@ module.exports = function(app) {
 				});
 		},
 
+		listPossibleSwolemates: function(req, callback) {
+			var currentUser = Account(req.user);
+			var queryObject = { //we want accounts who have no swolemate, but have matching_params
+													"swolationship_id": {"$exists" : false }, 
+													"matching_params": { "$exists" : true }
+												}; 
+			Account.find(queryObject).
+			populate('matching_params').exec(
+      function(err, docs) {
+        if (err) {return console.error(err);}
+      	callback(null, currentUser.getClosestSwolemates(docs));
+    	});
+		},
+
 		createDashboardForUser: function (currentUser, callback) {
 			console.log('generating dashboard');
 			console.log(currentUser);
