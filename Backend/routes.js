@@ -132,8 +132,9 @@ module.exports = function (app) {
 		    return res.json(err);
 		  }
       else {
-        var shitThatAngularExpects = {success: true, message: "Success"};
-		    res.json(shitThatAngularExpects);
+        finalJSON.success=true;
+        finalJSON.message="Success!";
+		    return res.json(finalJSON);
       }
 	  }
 

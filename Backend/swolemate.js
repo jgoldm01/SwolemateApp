@@ -11,12 +11,9 @@ module.exports = function(app) {
 			var newMatchingParams = new MatchingParams(req['body']);
 			console.log(newMatchingParams);
 			newMatchingParams.save(
-				function(err) {
-					if (err) {
-						console.error(err);
-						callback(err);
-					}
-					Account.update({'username': currentUser.username}, {matching_params: newMatchingParams}).exec(callback); 
+				function(err, savedMatchingParams) {
+					if (err) {console.error(err); return callback(err);}
+					Account.update({'username': currentUser.username}, {matching_params: savedMatchingParams._id}, {}, callback); 
 				});
 		},
 
