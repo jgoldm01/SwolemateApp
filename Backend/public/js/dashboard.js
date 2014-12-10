@@ -2,8 +2,11 @@ var dashBoard = angular.module('dashBoard', []);
 
 dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
 
-  $scope.addGoal = function(goalName) {
-    $http.post('api/swolationship/goal', {name: goalName})
+  $scope.formData = {};
+
+  $scope.addGoal = function() {
+    console.dir($scope.formData);
+    $http.post('api/swolationship/goal', {name: $scope.formData.newGoal})
   }
 
   $scope.completeGoal = function(id, goal) {

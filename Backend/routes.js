@@ -43,11 +43,15 @@ module.exports = function (app) {
   });
 
   app.get('/login', function(req, res) {
+    if (req.user) {
+      res.redirect('/dashboard')
+    }
+
 	 res.render('login', { user : req.user });
   });
 
   app.post('/login', passport.authenticate('local'), function(req, res) {
-	 res.redirect('/');
+	 res.redirect('/dashboard');
   });
 
   app.get('/logout', function(req, res) {
@@ -261,6 +265,7 @@ module.exports = function (app) {
       res.json(data);
     }
 
+    console.log(req.body);
     Swolemate.postNewGoal(req, echoJSON);
 
   });
