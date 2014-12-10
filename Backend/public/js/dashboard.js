@@ -1,29 +1,27 @@
 var dashBoard = angular.module('dashBoard', []);
 
 dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
-  $scope.completedGoals = [
+  $scope.goals = [
     {'name': 'Nexus S',
      'body': 'Fast just got faster with Nexus S.',
-   'complete': 'true/sec'},
+   'complete': true},
    {'name': 'Nexus S',
      'body': 'Fast just got faster with Nexus S.',
-   'complete': 'true/sec'},
+   'complete': true},
    {'name': 'Nexus S',
      'body': 'Fast just got faster with Nexus S.',
-   'complete': true}
+   'complete': true},
+   {'name': 'currentGoals',
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': false},
+   {'name': 'currentGoals S',
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': false},
+   {'name': 'currentGoals S',
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': false}
   ];
 
-  $scope.incompleteGoals = [
-    {'name': 'currentGoals',
-     'body': 'Fast just got faster with Nexus S.',
-   'complete': 'true/sec'},
-   {'name': 'currentGoals S',
-     'body': 'Fast just got faster with Nexus S.',
-   'complete': 'true/sec'},
-   {'name': 'currentGoals S',
-     'body': 'Fast just got faster with Nexus S.',
-   'complete': 'true/sec'}
-  ];
 
   $scope.user = 
     {'username': 'Android',
@@ -45,33 +43,31 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
     }
 
 
-
-  for (key in $scope.incompleteGoals) {
-    updateData(0);
-  }
-
-  for (key in $scope.completedGoals) {
-    updateData(2);
-  }
+    for (goal in $scope.goals) {
+       if (goal.complete) {
+          updateData(1);
+      } else {
+        updateData(0);
+      }
+    }
 
   $scope.completeGoal = function(id, goal) {
     str = 'api/swolationship/goal/:'+id;
     $http.put(str, goal)
   }
 
-  // $http.get('api/swolationship/completedGoals').success(function(data) {
+  // $http.get('api/swolationship/goals').success(function(data) {
   //   $scope.completedGoals = data;
-   // for (key in $scope.incompleteGoals) {
-   //    updateData(0);
+   // for (key in $scope.goals) {
+      //  if (key.complete) {
+      //     updateData(2);
+      // } else {
+      //   updateData(0);
+      // }
    //  }
   // })
 
-  // $http.get('api/swolationship/incompleteGoals').success(function(data) {
-  //   $scope.incompleteGoals = data;
-  //   for (key in $scope.incompleteGoals) {
-  //     updateData(0);
-  //   }
-  // })
+
 
   // $http.get('api/swolationship').success(function(data) {
   //   $scope.swolationship = data;

@@ -92,11 +92,11 @@
         
         <br></br>
 	      <h4>Current goals<h4> <!-- click on the ones you've completed-->
-        <div ng-repeat="goal in incompleteGoals"> <!--swolemate 1-->
+        <div ng-repeat="goal in goals"> <!--swolemate 1-->
 
         <form ng-submit="completeGoal(goal._id, goal)">
           <div class="text-center">
-              <button href="dashboard.html" class="btn btn-primary" id="goal" type="submit">{{goal.name}}
+              <button href="dashboard.html" class="btn btn-primary" id="goal" type="submit">{{goal.name}} -- complete: {{goal.complete}}
               </button>
           </div>
         </form>
@@ -146,16 +146,12 @@
             <script src="js/goalchart.js"></script>
           <br/><br/>
 
-	  <h4>Completed Goals</h4>
-        <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
-                <p>{{goal.name}}</p></div>
-
 
 
 
 
 	  </br></br>
-          <a class="btn btn-lg btn-primary" href="developers" role="button">About the Developers</a>
+          <a class="btn btn-lg btn-primary" href="gymsnearme.html" role="button">Find Gyms Near Me</a>
 
 
 
