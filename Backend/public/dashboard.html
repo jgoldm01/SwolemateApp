@@ -75,11 +75,13 @@
         <div class="row">
            <div class="col-md-4">
            <h3> Swolationship </h3>
-           <h4> {{swolationship.user1.username}} <3 {{swolationship.user2.username}}</h4>
+           <p> {{swolationship.user1.username}} <3 {{swolationship.user2.username}}</p>
 
            <br />
-           <p> create a goal </p>
 
+          <br></br>
+
+           <h4> Create goals </h4>
 	      <!--Box for creating goal -->
 	      <label for="createGoal" class="sr-only">New Goal</label>
               <input type="goal" id="createGoal" class="form-control" placeholder="New Goal" required autofocus>
@@ -87,7 +89,9 @@
 	      <!--Button to submit the goal -->
               <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
 
-	      <p>Current goals -- click on the ones you've completed</p>
+        
+        <br></br>
+	      <h4>Current goals<h4> <!-- click on the ones you've completed-->
         <div ng-repeat="goal in incompleteGoals"> <!--swolemate 1-->
 
         <form ng-submit="completeGoal(goal._id, goal)">
@@ -99,14 +103,14 @@
 
         </div>
 	      </br></br> <!--probably not the best way to style -->
-	      <p>Messages</p>
+	      <h4>Messages</h4>
 
 
 	   </div> <!--closing tag for swolelationship column -->
 
 
 	<div class="col-md-4"> <!--opening tag for about me and settings column-->
-          <p style="text-decoration:underline;">About me</p>
+          <h3>About me</h3>
           <p> {{user.username}}</p>
        
 
@@ -131,7 +135,7 @@
 
 	<!--START goal history column -->
         <div class="col-md-4">
-          <p>Goal History</p>
+          <h3>Goal History</h3>
             <button onclick="updateData(1)">Goal Completed!</button>
             <button onclick="updateData(0)">New Goal!</button>
 
@@ -142,7 +146,7 @@
             <script src="js/goalchart.js"></script>
           <br/><br/>
 
-	  <p>Completed Goals</p>
+	  <h4>Completed Goals</h4>
         <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
                 <p>{{goal.name}}</p></div>
 
