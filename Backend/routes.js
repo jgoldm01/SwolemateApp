@@ -90,7 +90,7 @@ module.exports = function (app) {
       return res.redirect('/?error=nologin');
     }
 
-
+    res.render('swolefinder', {});
 
   });
 

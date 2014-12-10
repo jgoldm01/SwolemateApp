@@ -21,7 +21,7 @@ Account.methods.chooseSwolemate = function(swolemateName, callback) {
 
 	this.model('Account').findOne({username: swolemateName}).exec(function(err, otherSwolemate) {
 		if (err) {return console.log(err);}
-		if (otherSwolemate == null) {return console.error("Requested swolationship with bad user.");}
+		if (otherSwolemate == null) {return console.error("Requested swolationship with bad user " + swolemateName);}
 		var ourSwolationship = new Swolationship({user1_ID: currentAccount['_id'], 
 																							user2_ID: otherSwolemate['_id']});
 		ourSwolationship.save(function (err, savedSwolationship) {
