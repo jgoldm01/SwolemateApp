@@ -38,7 +38,7 @@
 
       var mapOptions = {
         center: { lat: myLat, lng: myLng},
-        zoom: 13
+        zoom: 14
       };
 
       map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -46,7 +46,7 @@
 
       var request = {
       	location: {lat: myLat, lng: myLng},
-      	radius: 1000, 
+      	radius: 3000, 
       	types: ['gym']
       }
       infowindow = new google.maps.InfoWindow();
@@ -67,7 +67,7 @@
 
   function createMarker(place) {
     //check out the place object! pretty cool stuff
-  	//console.log(place);
+  	console.log(place);
   	var placeLoc = place.geometry.location;
   	var marker = new google.maps.Marker({
   		map: map, 
@@ -75,13 +75,16 @@
   	});
 
   	google.maps.event.addListener(marker, 'click', function() {
-  		if (place.opening_hours.open_now) {
-  			str = "open now!"
-  		} else {
-  			str = "closed at this late hour"
-  		}
+  		if (place.hasOwnProperty('opening_hours')) {
+        if (place.opening_hours.open_now) {
+    			str = "open now!"
+    		} else {
+    			str = "closed at this late hour"
+    		}
+      } else {
+        str = "";
+      }
   		infowindow.setContent(place.name + "<br />" + str);
-  		// place.name
   		infowindow.open(map, this);
   	});
   }
