@@ -15,13 +15,16 @@ swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope, $http) {
 	 // 	 'frequency': '4gb/sec',
 	 // 	 'distance': '5 inches'}
 	 //  ];
+  $http.get('api/swolefinder').success(function(data) {
+    $scope.swolemates = data;
+  })
 
   $scope.selectswolemate = function(username) {
   	$http.post('api/chooseswolemate', {"username": username})
-  	//window.location.replace("dashboard.html");
-  }
-	
-  $http.get('api/swolefinder').success(function(data) {
-   	$scope.swolemates = data;
+  	
+  }.success(function(data, status, headers, config) {
+    window.location.replace("dashboard.html");
   })
+	
+
 });
