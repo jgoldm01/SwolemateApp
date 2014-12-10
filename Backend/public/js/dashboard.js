@@ -8,7 +8,7 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
   }
 
   $http.get('api/swolationship/goal').success(function(data) {
-    $scope.completedGoals = data;
+    $scope.goals = data;
     for (key in $scope.goals) {
       if (key.complete) {
           updateData(2);

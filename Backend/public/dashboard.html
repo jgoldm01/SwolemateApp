@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Swolemate : Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -93,31 +93,31 @@
 
         
         <br></br>
-	      <h4>Current goals<h4> <!-- click on the ones you've completed-->
+	      <h4>Current Goals:<h4> <!-- click on the ones you've completed-->
         <div ng-repeat="goal in goals"> <!--swolemate 1-->
-
         <form ng-submit="completeGoal(goal._id, goal)">
-          <div class="text-center">
-              <button href="dashboard.html" class="btn btn-primary" id="goal" type="submit">{{goal.name}} -- complete: {{goal.complete}}
+          <div ng-if="!goal.complete">
+              <i>{{goal.name}} </i> 
+              <button href="dashboard.html" class="btn" id="goal" 
+              type="submit"> 
+                Complete
               </button>
           </div>
         </form>
-
         </div>
-	      </br></br> <!--probably not the best way to style -->
-	      <h4>Messages</h4>
+	      </br></br>
 
 
 	   </div> <!--closing tag for swolelationship column -->
 
 
 	<div class="col-md-4"> <!--opening tag for about me and settings column-->
-          <h3>About me</h3>
+          <h3>About Me</h3>
           <p> {{user.username}}</p>
        
 
 	  <div> <!--Div for settings section -->
-
+    <br><br>
 	    <p><b>Exercise:</b></p>
 	    <div>
         <p> {{user.matching_params.focus}}
@@ -133,8 +133,8 @@
 	<!--START goal history column -->
         <div class="col-md-4">
           <h3>Goal History</h3>
-            <button onclick="updateData(1)">Goal Completed!</button>
-            <button onclick="updateData(0)">New Goal!</button>
+            <button class="btn" onclick="updateData(1)">Goal Completed!</button>
+            <button class="btn" onclick="updateData(0)">New Goal!</button>
 
             <div id="chart_div" style="width: 900px; height: 300px;"></div>
 
