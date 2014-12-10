@@ -88,6 +88,15 @@ module.exports = function (app) {
     Swolemate.createDashboardForUser(user, sendEmptyDashboard);
   });
 
+  app.get('/swolefinder', function(req, res) {
+    var user = req.user;
+    if (!user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    
+  });
+
 //             ----                               ----
 //                API ROUTES - ALL SEND JSON BACK
 //             ----                               ----
@@ -97,13 +106,15 @@ module.exports = function (app) {
 	  if (!user) {
 		  res.redirect('/?error=nologin');
 	  }
-	  res.json(user);
+    else {
+	    res.json(user);
+    }
   });
 
   app.get('/api/user/matchingparams', function (req, res) {
 	  var user = req.user;
 	  if (!user) {
-		  res.redirect('/?error=nologin');
+		  return res.redirect('/?error=nologin');
 	  }
 	  Account(user).populate('matching_params', function(err, mp) {
 		  res.json(mp.matching_params);
@@ -112,19 +123,32 @@ module.exports = function (app) {
 
   app.post('/api/user/matchingparams', function (req, res) {
 	  var user = req.user;
-	  if (!user) {
-		  res.redirect('/?error=nologin');
+	  if (!user) { // if there's no user, gettouttahere!
+		  return res.redirect('/?error=nologin');
 	  }
+    
+    Swolemate.postMatchingParams(req, echoJSON);
 
 	  function echoJSON (err, finalJSON) {
 		  if (err) {
 		    res.status(500);
 		    return res.json(err);
 		  }
-		  res.json(finalJSON);
+      else {
+        var shitThatAngularExpects = {success: true, message: "Success"};
+		    res.json(shitThatAngularExpects);
+      }
 	  }
 
-    Swolemate.postMatchingParams(req, echoJSON);
+  });
+
+  app.post('/api/echo', function (req, res) {
+
+    console.log("Request: " + JSON.stringify(req['body']));
+
+    var shitThatAngularExpects = {success: true, message: "Success"};
+    res.json(shitThatAngularExpects);
+
   });
 
 //This is the API endpoint for dashboard, which sends back the fully populated
