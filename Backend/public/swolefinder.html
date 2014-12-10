@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="swoleMateFinder" lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +18,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-    <body>
-
+    <body ng-controller="swoleMateFinderCtrl">
+      <!-- angular javascript!! -->
+      <script src="js/angular.js"></script>
+      <script src="js/swolefinderController.js"></script>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -72,67 +74,16 @@
 
         <h2>Find Your Swolemate!</h2>
         <!--show profiles of each potential swolemate-->
-        <div> <!--swolemate 1-->
+        <div ng-repeat="swolemate in swolemates"> <!--swolemate 1-->
           <div class="row">
            <div class="col-md-offset-3 col-sm-6 col-md-6">
              <div class="thumbnail">
-              <img src="holder.js/300x300" alt="...">
+              <img src="img/cutedog.jpg" alt="...">
                <div class="caption">
-                <p>Name of Swolemate</p>
-                Focus: Cardio <br>
-                Frequency: 1-2 Days <br>
-                Distance: 2 mi <br>
-                <p><a href="#" class="btn btn-primary" role="button">Be my swolemate</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div> <!--swolemate 2-->
-          <div class="row">
-           <div class="col-md-offset-3 col-sm-6 col-md-6">
-             <div class="thumbnail">
-              <img src="holder.js/300x300" alt="...">
-               <div class="caption">
-                <p>Name of Swolemate</p>
-                Focus: Cardio <br>
-                Frequency: 1-2 Days <br>
-                Distance: 2 mi <br>
-                <p><a href="#" class="btn btn-primary" role="button">Be my swolemate</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div> <!--swolemate 3-->
-          <div class="row">
-           <div class="col-md-offset-3 col-sm-6 col-md-6">
-             <div class="thumbnail">
-              <img src="holder.js/300x300" alt="...">
-               <div class="caption">
-                <p>Name of Swolemate</p>
-                Focus: Cardio <br>
-                Frequency: 1-2 Days <br>
-                Distance: 2 mi <br>
-                <p><a href="#" class="btn btn-primary" role="button">Be my swolemate</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div> <!--swolemate 4-->
-          <div class="row">
-           <div class="col-md-offset-3 col-sm-6 col-md-6">
-             <div class="thumbnail">
-              <img src="holder.js/300x300" alt="...">
-               <div class="caption">
-                <p>Name of Swolemate</p>
-                Focus: Cardio <br>
-                Frequency: 1-2 Days <br>
-                Distance: 2 mi <br>
+                <p>{{swolemate.name}}</p>
+                Focus: {{swolemate.focus}} <br>
+                Frequency: {{swolemate.frequency}} <br>
+                Distance: {{swolemate.distance}} <br>
                 <p><a href="#" class="btn btn-primary" role="button">Be my swolemate</a></p>
               </div>
             </div>
