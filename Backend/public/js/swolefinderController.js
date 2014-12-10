@@ -1,6 +1,6 @@
 var swoleMateFinder = angular.module('swoleMateFinder', []);
 
-swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope) {
+swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope, $http) {
   $scope.swolemates = [
     {'name': 'Nexus S',
      'focus': 'Fast just got faster with Nexus S.',
@@ -16,9 +16,12 @@ swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope) {
  	 'distance': '5 inches'}
   ];
 
-  // todo: $http.get(thingy.json).success(function(data) {
+  $scope.selectswolemate = function(name) {
+  	$http.post('api/chooseswolemate', {"username": name})
+  	window.location.replace("dashboard.html");
+  }
+	
+  // todo: $http.get(api/swolefinder).success(function(data) {
   // 	$scope.swolemates = data;
   // })
-
-  $scope.ppl = {'name': 'johnny boy'}
 });

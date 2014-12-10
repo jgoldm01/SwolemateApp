@@ -84,7 +84,12 @@
                 Focus: {{swolemate.focus}} <br>
                 Frequency: {{swolemate.frequency}} <br>
                 Distance: {{swolemate.distance}} <br>
-                <p><a href="#" class="btn btn-primary" role="button">Be my swolemate</a></p>
+                <form ng-submit="selectswolemate()">
+                  <div class="text-center">
+                      <button href="dashboard.html" class="btn btn-primary" id="selectswolemate" type="submit"><span class="glyphicon glyphicon-flash"></span>Be My Swolemate!
+                      </button>
+                  </div>
+              </form>
               </div>
             </div>
           </div>
