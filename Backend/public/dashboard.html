@@ -85,11 +85,11 @@
 
            <h4> Create goals </h4>
 	      <!--Box for creating goal -->
-	      <label for="createGoal" class="sr-only">New Goal</label>
-              <input type="goal" id="createGoal" class="form-control" placeholder="New Goal" required autofocus>
-
-	      <!--Button to submit the goal -->
+        New Goal: <input type="text" name="input" ng-model="text"
+                      ng-pattern="word" required ng-trim="false">
+        <form ng-submit="addGoal(text)">
               <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
+        </form>
 
         
         <br></br>
