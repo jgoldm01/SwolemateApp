@@ -174,7 +174,7 @@ module.exports = function (app) {
     function echoJSON(err, data) {
       if (err) {
         console.error(err);
-        return res.send(500);
+        return res.sendStatus(500);
       }
       res.json(data);
     }
@@ -183,8 +183,19 @@ module.exports = function (app) {
 
   });
 
-  app.get('/api/chooseswolemate', function(req,res) {
-    
+  app.post('/api/chooseswolemate', function(req, res) {
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function echoJSON(err, data) {
+      if (err) {
+        console.error(err);
+        return res.sendStatus(500);
+      }
+      res.json(data);
+    }
+    req.user.chooseSwolemate(req['body']['username'], echoJSON);
 
   });
 

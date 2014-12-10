@@ -11,16 +11,34 @@ var Swolationship = require('./swolationship');
 var Account = new Schema({
 	username: String,
 	password: String,
-	swolationship_id: {type: ObjectId, ref: 'Swolationship'},
+	swolationship: {type: ObjectId, ref: 'Swolationship'},
 	matching_params: {type: ObjectId, ref: 'MatchingParams'} 
 });
+
+
+Account.methods.chooseSwolemate = function(swolemateName, callback) {
+	var currentAccount = this;
+
+	this.model('Account').findOne({username: swolemateName}).exec(function(err, otherSwolemate) {
+		if (err) {return console.log(err);}
+		if (otherSwolemate == null) {return console.error("Requested swolationship with bad user.");}
+		var ourSwolationship = new Swolationship({user1_ID: currentAccount['_id'], 
+																							user2_ID: otherSwolemate['_id']});
+		ourSwolationship.save(function (err, savedSwolationship) {
+			if (err) {console.error(err); return callback(err);}
+			currentAccount.model('Account').update({ $or: [{username: currentAccount.username}, {username: otherSwolemate.username}] }, {swolationship: savedSwolationship._id}, {multi: true}, function (err, numUpdated, raw) {
+				callback(err, raw);
+			});
+		})
+	});
+}
 
 
 Account.methods.getClosestSwolemates = function(callback) {
 	var currentAccount = this;
 
 	var queryObject = { //we want accounts who have no swolemate, but have matching_params
-													"swolationship_id": {"$exists" : false }, 
+													"swolationship": {"$exists" : false }, 
 													"matching_params": { "$exists" : true }
 												}; 
 	this.model('Account').find(queryObject).
@@ -30,17 +48,16 @@ Account.methods.getClosestSwolemates = function(callback) {
     	async.map(docs, populateDistance, function(err, finalList) {
     		async.filter(finalList, function (n, callback) {return callback(n != null)}, function(cleanList) {
     				cleanList.sort(compareDistances);
+    				cleanList.shift();
     				callback(err, cleanList);
     		});
     	});
 
     	function populateDistance(otherSwolemate, callback) {
     			if (otherSwolemate.matching_params == null) {
-    				console.log(otherSwolemate.matching_params);
     				return callback(null, null);
     			}
 
-    			//console.log(otherSwolemate);
     			currentAccount.getDistanceFrom(otherSwolemate, function(err, distance) {
     				var newSwolemate = {
     					distanceTo: distance,

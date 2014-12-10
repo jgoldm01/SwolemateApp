@@ -8,7 +8,7 @@ var Message = require('./message.js');
 
 var Swolationship = new Schema({
 	user1_ID: {type: ObjectId, ref: 'Account'},
-	user2_ID: ObjectId,
+	user2_ID: {type: ObjectId, ref: 'Account'},
 	goals: [Goal],
 	messages: [Message],
 })
