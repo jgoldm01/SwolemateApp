@@ -18,7 +18,7 @@ swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope, $http) {
 
   $scope.selectswolemate = function(username) {
   	$http.post('api/chooseswolemate', {"username": username})
-  	window.location.replace("dashboard.html");
+  	//window.location.replace("dashboard.html");
   }
 	
   $http.get('api/swolefinder').success(function(data) {
