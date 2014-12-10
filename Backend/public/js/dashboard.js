@@ -2,40 +2,12 @@ var dashBoard = angular.module('dashBoard', []);
 
 dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
 
-  // $scope.user = 
-  //   {'username': 'Android',
-  //    'matchingparams': {
-  //      'focus': 'running',
-  //      'frequency': '4gb/sec',
-  //      'distance': '5 inches'
-  //    }
-  //   }
-
-  // $scope.swolationship = 
-  //   {
-  //     'user1': {
-  //       'username':'android'
-  //     },
-  //     'user2': {
-  //       'username':'iphone'
-  //     }
-  //   }
-
-
-    // for (goal in $scope.goals) {
-    //    if (goal.complete) {
-    //       updateData(1);
-    //   } else {
-    //     updateData(0);
-    //   }
-    // }
-
   $scope.completeGoal = function(id, goal) {
     str = 'api/swolationship/goal/:'+id;
     $http.put(str, goal)
   }
 
-  $http.get('api/swolationship/goals').success(function(data) {
+  $http.get('api/swolationship/goal').success(function(data) {
     $scope.completedGoals = data;
     for (key in $scope.goals) {
       if (key.complete) {
@@ -45,7 +17,6 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
       }
     }
   })
-
 
 
   $http.get('api/swolationship').success(function(data) {

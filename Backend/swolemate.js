@@ -46,8 +46,7 @@ module.exports = function(app) {
 		},
 
 		createDashboardForUser: function (currentUser, callback) {
-			console.log('generating dashboard');
-			console.log(currentUser);
+
 
 			callback();
 		}

@@ -75,14 +75,10 @@ module.exports = function (app) {
   app.get('/dashboard', function(req, res) {
     var user = req.user;
     if (!user) {
-      res.redirect('/?error=nologin');
+      return res.redirect('/?error=nologin');
     }
 
-    function sendEmptyDashboard () {
-      res.render('dashboard', {});
-    }
-
-    Swolemate.createDashboardForUser(user, sendEmptyDashboard);
+    res.render('dashboard', {});
   });
 
   app.get('/swolefinder', function(req, res) {
