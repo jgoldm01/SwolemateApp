@@ -179,12 +179,12 @@ module.exports = function (app) {
       res.json(data);
     }
 
-    Swolemate.listPossibleSwolemates(echoJSON);
+    req.user.getClosestSwolemates(echoJSON);
 
-    //get list of all accounts without a swolationship
-    //populate matchingparams for all those accounts
-    //list matchingparams
-    //sort matchingparams by distance from current user
+  });
+
+  app.get('/api/chooseswolemate', function(req,res) {
+    
 
   });
 

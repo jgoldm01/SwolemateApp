@@ -22,6 +22,7 @@
                 "method-override": "latest",
                 "cookie-parser": "latest",
                 "express-session": "latest",
-                "errorhandler": "latest"
+                "errorhandler": "latest",
+                "async": "latest" 
         }
 }
