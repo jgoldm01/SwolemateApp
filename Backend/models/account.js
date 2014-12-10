@@ -7,6 +7,7 @@ var ObjectId = Schema.ObjectId;
 
 var MatchingParams = require('./matchingparams');
 var Swolationship = require('./swolationship');
+var Goal = require('./goal');
 
 var Account = new Schema({
 	username: String,
@@ -16,22 +17,6 @@ var Account = new Schema({
 });
 
 
-Account.methods.chooseSwolemate = function(swolemateName, callback) {
-	var currentAccount = this;
-
-	this.model('Account').findOne({username: swolemateName}).exec(function(err, otherSwolemate) {
-		if (err) {return console.log(err);}
-		if (otherSwolemate == null) {return console.error("Requested swolationship with bad user " + swolemateName);}
-		var ourSwolationship = new Swolationship({user1_ID: currentAccount['_id'], 
-																							user2_ID: otherSwolemate['_id']});
-		ourSwolationship.save(function (err, savedSwolationship) {
-			if (err) {console.error(err); return callback(err);}
-			currentAccount.model('Account').update({ $or: [{username: currentAccount.username}, {username: otherSwolemate.username}] }, {swolationship: savedSwolationship._id}, {multi: true}, function (err, numUpdated, raw) {
-				callback(err, raw);
-			});
-		})
-	});
-}
 
 
 Account.methods.getClosestSwolemates = function(callback) {
@@ -70,6 +55,25 @@ Account.methods.getClosestSwolemates = function(callback) {
     	}
    });
 }
+
+
+Account.methods.chooseSwolemate = function(swolemateName, callback) {
+	var currentAccount = this;
+
+	this.model('Account').findOne({username: swolemateName}).exec(function(err, otherSwolemate) {
+		if (err) {return console.log(err);}
+		if (otherSwolemate == null) {return console.error("Requested swolationship with bad user " + swolemateName);}
+		var ourSwolationship = new Swolationship({user1: currentAccount['_id'], 
+																							user2: otherSwolemate['_id']});
+		ourSwolationship.save(function (err, savedSwolationship) {
+			if (err) {console.error(err); return callback(err);}
+			currentAccount.model('Account').update({ $or: [{username: currentAccount.username}, {username: otherSwolemate.username}] }, {swolationship: savedSwolationship._id}, {multi: true}, function (err, numUpdated, raw) {
+				callback(err, raw);
+			});
+		})
+	});
+}
+
 
 function compareDistances(personA, personB) {
   if (personA['distanceTo'] < personB['distanceTo']) {
