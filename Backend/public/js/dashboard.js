@@ -1,24 +1,20 @@
-var swoleMateFinder = angular.module('swoleMateFinder', []);
+var dashBoard = angular.module('dashBoard', []);
 
-swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope) {
-  $scope.swolemates = [
+dashBoard.controller('dashBoardCtrl', function ($scope) {
+  $scope.completedGoals = [
     {'name': 'Nexus S',
-     'focus': 'Fast just got faster with Nexus S.',
-   'frequency': '4gb/sec',
-   'distance': '5 inches'},
-    {'name': 'Nexus S',
-     'focus': 'Fast just got faster with Nexus S.',
-   'frequency': '4gb/sec',
-   'distance': '5 inches'},    
-  {'name': 'Nexus S',
-     'focus': 'Fast just got faster with Nexus S.',
-   'frequency': '4gb/sec',
-   'distance': '5 inches'}
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': 'true/sec'},
+   {'name': 'Nexus S',
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': 'true/sec'},
+   {'name': 'Nexus S',
+     'body': 'Fast just got faster with Nexus S.',
+   'complete': 'true/sec'}
   ];
 
   // todo: $http.get(api/swolefinder).success(function(data) {
   //  $scope.swolemates = data;
   // })
 
-  $scope.ppl = {'name': 'johnny boy'}
 });

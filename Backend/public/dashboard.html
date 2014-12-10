@@ -16,7 +16,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+
+  <body ng-app="dashBoard" ng-controller="dashBoardCtrl">
+
 
 
     <!-- Fixed navbar -->
@@ -155,8 +157,16 @@
           <br/><br/>
 
 	  <p>Completed Goals</p>
+        <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
+                <p>{{goal.name}} - {{goal.body}}</p></div>
+
+
+
+
 	  </br></br>
           <a class="btn btn-lg btn-primary" href="developers" role="button">About the Developers</a>
+
+
 
         </div> <!--end goal history column-->
       </div> <!--end of jumbotron-->
