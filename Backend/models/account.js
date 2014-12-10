@@ -14,18 +14,47 @@ var Account = new Schema({
 });
 
 
-Account.methods.validate = function(password) {
-	if(password == this.password) {
-		err = 0;
-		// create sessionToken
-	} else {
-		err = 1;
+Account.methods.getClosestSwolemates = function(allSwolemates) {
+	var currentAccount = this;
+
+	var tempSwolemate;	
+	for (i in allSwolemates) {
+		var tempDistance = currentAccount.getDistanceFrom(allSwolemates[i]);
+		console.log(tempDistance);
+		allSwolemates[i].distanceTo = tempDistance; 
+
 	}
 
-	return { error: err, sessionToken: token}
+	return closestSwolemates;
+}
+
+Account.methods.getDistanceFrom = function(otherSwolemate) {
+
+	var currentUser = this;
+
+	var thisLat = currentUser['matching_params']['lat'];
+	var thisLng = currentUser['matching_params']['lng'];
+	var otherLat = otherSwolemate['matching_params']['lat'];
+	var otherLng = otherSwolemate['matching_params']['lng'];
+
+	return haversineDistance(otherLat, otherLng, thisLat, thisLng);
 }
 
 
+function haversineDistance (Lat1, Lng1, myLat, myLng) {
+		var radius = 3959; //miles 
+		var x1 = Lat1 - myLat;  
+		var dLat = toRad(x1); 
+		var x2 = Lng1 - myLng;  
+		var dLon = toRad(x2);
+		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                Math.cos(toRad(myLat)) * Math.cos(toRad(Lat1)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2); 
+				
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = radius * c; //d is distance
+		return d; 
+}
 
 
 /*
