@@ -39,6 +39,12 @@ module.exports = function(app) {
 			});
 		},
 
+		updateGoal: function(req, callback) {
+			var idRequested = req.params['id'];
+			var updatedGoal = req.body;
+			Goal.update({_id: idRequested}, updatedGoal, {}, callback);
+		},
+
 		createDashboardForUser: function (currentUser, callback) {
 			console.log('generating dashboard');
 			console.log(currentUser);

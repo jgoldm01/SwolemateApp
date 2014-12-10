@@ -1,5 +1,6 @@
 var passport = require('passport');
 var Account = require('./models/account');
+var Swolationship = require('./models/swolationship');
 
 
 
@@ -133,19 +134,14 @@ module.exports = function (app) {
     Swolemate.postMatchingParams(req, sendSuccess);
 
 	  function sendSuccess (err, numChanged, raw) {
-		  if (err) {
-		    res.status(500);
-		    return res.json(err);
-		  }
-      else {
-        var finalJSON = {
+		  if (err) {res.status(500); return res.json(err);}
+      var finalJSON = {
           success: true,
           raw: raw,
           message: "Working..."
         }
 		    return res.json(finalJSON);
-      }
-	  }
+	   }
 
   });
 
@@ -212,6 +208,11 @@ module.exports = function (app) {
     }
 
     req.user.populate('swolationship', function(err, populatedCurrentUser) {
+      if (populatedCurrentUser.swolationship == "undefined"){
+        console.error("No swolationship exists!");
+        console.error(populatedCurrentUser);
+        return res.json(populatedCurrentUser); }
+
       populatedCurrentUser.swolationship.populate('user1', function(err, populatedSwolationship) {
         populatedSwolationship.populate('user2', function(err, populatedSwolationship) {
           populatedSwolationship.populate('goals', function(err, populatedSwolationship) {
@@ -224,8 +225,8 @@ module.exports = function (app) {
   });
 
 
-  app.get('/api/swolationship/goal', function(req, res){
-    //get a list of all goals
+  app.get('/api/swolationship/goals/completed', function(req, res){
+    //get a list of all completed goals
 
   });
 
@@ -246,15 +247,33 @@ module.exports = function (app) {
 
   });
 
+    // Update the goal with :id
   app.put('/api/swolationship/goal/:id', function(req, res) {
-    //update a goal
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
 
+    function sendSuccess (err, numChanged, raw) {
+      if (err) {res.status(500); return res.json(err);}
+      var finalJSON = {
+          success: true,
+          raw: raw,
+          message: "Working..."
+        }
+        return res.json(finalJSON);
+     }
+
+    Swolemate.updateGoal(req, sendSuccess);
   });
 
 
 
-  app.get('/api/swolationship/:id([0-9a-f]{24})', function(req, res){
+  app.get('/api/swolationship/:id', function(req, res){
 	  var idRequested = req.params['id'];
+
+    Swolationship.findOne({_id: idRequested}).exec(function(err, foundSwolationship) {
+      res.json(foundSwolationship);
+    })
   });
 
 

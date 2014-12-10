@@ -23,6 +23,7 @@ var formApp = angular.module('formApp', [])
           }
           else {
             $scope.message = data.message;
+            window.location.href = "swolefinder";
           }
 
         });
