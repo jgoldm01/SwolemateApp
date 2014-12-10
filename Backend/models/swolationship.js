@@ -7,10 +7,10 @@ var Message = require('./message.js');
 
 
 var Swolationship = new Schema({
-	user1_ID: {type: ObjectId, ref: 'Account'},
-	user2_ID: {type: ObjectId, ref: 'Account'},
-	goals: [Goal],
-	messages: [Message],
+	user1: {type: ObjectId, ref: 'Account'},
+	user2: {type: ObjectId, ref: 'Account'},
+	goals: [{type: ObjectId, ref: 'Goal'}],
+	messages: [{type: ObjectId, ref: 'Message'}],
 })
 
 Swolationship.methods.unsetSwole = function () {
@@ -22,8 +22,15 @@ Swolationship.methods.setSwole = function () {
 	//TODO
 }
 
-Swolationship.methods.addGoal = function () {
-	//TODO
+Swolationship.methods.addGoal = function (goalData, callback) {
+	var thisSwolationship = this;
+	var newGoal = new Goal({name: goalData.name,
+													completed: false});
+	newGoal.save(function(err) {
+		if (err) {return console.error(err);}
+			thisSwolationship.goals.push(newGoal);
+			thisSwolationship.save(callback);
+		});
 }
 
 Swolationship.methods.retrieveGoal = function () {

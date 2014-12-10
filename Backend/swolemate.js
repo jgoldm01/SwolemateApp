@@ -32,6 +32,13 @@ module.exports = function(app) {
 				});
 		},
 
+		postNewGoal: function(req, callback) {
+			Swolationship.findOne({_id: req.user.swolationship}).exec(function(err, swolationship) {
+			  if (swolationship == null) {return console.err("User doesn't have swolationship!");}
+			  swolationship.addGoal(req.body, callback);
+			});
+		},
+
 		createDashboardForUser: function (currentUser, callback) {
 			console.log('generating dashboard');
 			console.log(currentUser);

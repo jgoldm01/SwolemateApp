@@ -101,11 +101,17 @@ module.exports = function (app) {
   app.get('/api/user', function(req, res) {
 	  var user = req.user;
 	  if (!user) {
-		  res.redirect('/?error=nologin');
+		  return res.redirect('/?error=nologin');
 	  }
-    else {
-	    res.json(user);
+
+    function sendBackJSON (err, data) {
+      if (err) {return console.error(err);}
+
+      res.json(data);
     }
+
+    user.populate('matching_params', sendBackJSON);
+
   });
 
   app.get('/api/user/matchingparams', function (req, res) {
@@ -143,19 +149,10 @@ module.exports = function (app) {
 
   });
 
-  app.post('/api/echo', function (req, res) {
-
-    console.log("Request: " + JSON.stringify(req['body']));
-
-    var shitThatAngularExpects = {success: true, message: "Success"};
-    res.json(shitThatAngularExpects);
-
-  });
-
 //This is the API endpoint for dashboard, which sends back the fully populated
 //user account JSON. Not to be confused with the HTML endpoint for dashboard,
 //which sends back the template for the dashboard page 
-  app.get('/api/dashboard', function(req, res) {
+  app.get('/api/user/dashboard', function(req, res) {
     var user = req.user;
     if (!user) {
     res.redirect('/?error=nologin');
@@ -202,6 +199,59 @@ module.exports = function (app) {
     req.user.chooseSwolemate(req['body']['username'], echoJSON);
 
   });
+
+  app.get('/api/swolationship', function(req, res) {
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function sendBackJSON(err, data) {
+      if (err) {return console.error(err)}
+
+      res.json(data);
+    }
+
+    req.user.populate('swolationship', function(err, populatedCurrentUser) {
+      populatedCurrentUser.swolationship.populate('user1', function(err, populatedSwolationship) {
+        populatedSwolationship.populate('user2', function(err, populatedSwolationship) {
+          populatedSwolationship.populate('goals', function(err, populatedSwolationship) {
+            populatedSwolationship.populate('messages', sendBackJSON);
+          });
+        });
+      });
+    })
+
+  });
+
+
+  app.get('/api/swolationship/goal', function(req, res){
+    //get a list of all goals
+
+  });
+
+  app.post('/api/swolationship/goal', function(req, res) {
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function echoJSON(err, data) {
+      if (err) {
+        console.error(err);
+        return res.sendStatus(500);
+      }
+      res.json(data);
+    }
+
+    Swolemate.postNewGoal(req, echoJSON);
+
+  });
+
+  app.put('/api/swolationship/goal/:id', function(req, res) {
+    //update a goal
+
+  });
+
+
 
   app.get('/api/swolationship/:id([0-9a-f]{24})', function(req, res){
 	  var idRequested = req.params['id'];
