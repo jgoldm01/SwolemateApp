@@ -12,7 +12,7 @@ var formApp = angular.module('formApp', [])
       dataToSend['lng'] = $('span#longholder').text()
       $http({ 
         method  : 'POST',
-        url     : 'http://localhost:3000/api/user/matchingparams',
+        url     : 'api/user/matchingparams',
         data    : dataToSend, // pass in data 
       })
         .success(function(data) {
