@@ -74,10 +74,10 @@
       </div> <!--opening tag for swolelationship column-->
         <div class="row">
            <div class="col-md-4">
-           <h3> My Swolemate</h3>
-           <h4> Swolemate's name</h4>
-           <br/> 
-           <p>Email of swolemate</p>
+           <h3> Swolationship </h3>
+           <h4> {{swolationship.user1.username}} <3 {{swolationship.user2.username}}</h4>
+
+           <br />
            <p> create a goal </p>
 
 	      <!--Box for creating goal -->
@@ -87,10 +87,16 @@
 	      <!--Button to submit the goal -->
               <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
 
-	      <p>Current goals</p>
-        <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
-          <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> {{goal.name}} - {{goal.body}}</label>
+	      <p>Current goals -- click on the ones you've completed</p>
+        <div ng-repeat="goal in incompleteGoals"> <!--swolemate 1-->
+
+        <form ng-submit="completeGoal(goal._id, goal)">
+          <div class="text-center">
+              <button href="dashboard.html" class="btn btn-primary" id="goal" type="submit">{{goal.name}}
+              </button>
+          </div>
+        </form>
+
         </div>
 	      </br></br> <!--probably not the best way to style -->
 	      <p>Messages</p>
@@ -101,48 +107,24 @@
 
 	<div class="col-md-4"> <!--opening tag for about me and settings column-->
           <p style="text-decoration:underline;">About me</p>
-          <p> YOUR NAME HERE</p>
+          <p> {{user.username}}</p>
        
 
 	  <div> <!--Div for settings section -->
 
-	    <p>Distance</p>
+	    <p><b>Distance:</b></p>
 	    <div>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> Less than 5 miles
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 5-10 miles
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> No preference
-	      </label>
+        <p> {{user.matchingparams.distance}} </p>
 	    </div>
 
-	    <p>Exercise</p>
+	    <p><b>Exercise:</b></p>
 	    <div>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1">Strength
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2">Cardio
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3">Both
-	      </label>
+        <p> {{user.matchingparams.focus}}
 	    </div>
 
-	    <p>Frequency</p>
+	    <p><b>Frequency:</b></p>
 	    <div>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1"> 1-2 days/week
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> 3-4 days/week
-	      </label>
-	      <label class="radio-inline">
-		<input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> 5-7 days/week
-	      </label>
+        <p> {{user.matchingparams.frequency}}
 	    </div>
 	  </div> <!-- closing tag for settings section-->
 	</div> <!-- closing tag for about me column-->
@@ -162,7 +144,8 @@
 
 	  <p>Completed Goals</p>
         <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
-                <p>{{goal.name}} - {{goal.body}}</p></div>
+                <p>{{goal.name}}</p></div>
+
 
 
 

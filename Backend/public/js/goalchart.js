@@ -30,10 +30,13 @@ function runTableLoop() {
 }
 
 function updateData(ifCompleted) {
-	if (ifCompleted) {
+	if (ifCompleted == 1) {
 		if (notCompleted > 0) {
 			notCompleted -= 1;
 		}
+		completed += 1;
+	//for 
+	} else if (ifCompleted == 2) {
 		completed += 1;
 	}
 	else notCompleted += 1;
