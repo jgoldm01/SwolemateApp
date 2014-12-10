@@ -1,0 +1,426 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'forever',
+1 verbose cli   '-g',
+1 verbose cli   'nodemon' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'forever', null ]
+5 verbose cache add name=undefined spec="forever" args=["forever",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'forever',
+6 verbose parsed url   path: 'forever',
+6 verbose parsed url   href: 'forever' }
+7 verbose cache add [ 'nodemon', null ]
+8 verbose cache add name=undefined spec="nodemon" args=["nodemon",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'nodemon',
+9 verbose parsed url   path: 'nodemon',
+9 verbose parsed url   href: 'nodemon' }
+10 silly lockFile e07f8c4a-forever forever
+11 verbose lock forever /Users/jeremygoldman/.npm/e07f8c4a-forever.lock
+12 silly lockFile 1625b929-nodemon nodemon
+13 verbose lock nodemon /Users/jeremygoldman/.npm/1625b929-nodemon.lock
+14 silly lockFile e07f8c4a-forever forever
+15 silly lockFile e07f8c4a-forever forever
+16 verbose addNamed [ 'forever', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 28ef027b-forever forever@
+19 verbose lock forever@ /Users/jeremygoldman/.npm/28ef027b-forever.lock
+20 silly lockFile 1625b929-nodemon nodemon
+21 silly lockFile 1625b929-nodemon nodemon
+22 silly addNameRange { name: 'forever', range: '*', hasData: false }
+23 verbose addNamed [ 'nodemon', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile 4f5e51c6-nodemon nodemon@
+26 verbose lock nodemon@ /Users/jeremygoldman/.npm/4f5e51c6-nodemon.lock
+27 verbose request where is /forever
+28 verbose request registry https://registry.npmjs.org/
+29 verbose request id ff7012ae4f59c4e5
+30 verbose url raw /forever
+31 verbose url resolving [ 'https://registry.npmjs.org/', './forever' ]
+32 verbose url resolved https://registry.npmjs.org/forever
+33 verbose request where is https://registry.npmjs.org/forever
+34 info trying registry request attempt 1 at 03:14:58
+35 http GET https://registry.npmjs.org/forever
+36 silly addNameRange { name: 'nodemon', range: '*', hasData: false }
+37 verbose request where is /nodemon
+38 verbose request registry https://registry.npmjs.org/
+39 verbose url raw /nodemon
+40 verbose url resolving [ 'https://registry.npmjs.org/', './nodemon' ]
+41 verbose url resolved https://registry.npmjs.org/nodemon
+42 verbose request where is https://registry.npmjs.org/nodemon
+43 info trying registry request attempt 1 at 03:14:58
+44 http GET https://registry.npmjs.org/nodemon
+45 http 200 https://registry.npmjs.org/forever
+46 silly registry.get cb [ 200,
+46 silly registry.get   { date: 'Wed, 10 Dec 2014 08:15:00 GMT',
+46 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+46 silly registry.get     etag: '"50LSE54765Z1CBED9BMQ0QWFR"',
+46 silly registry.get     'content-type': 'application/json',
+46 silly registry.get     'cache-control': 'max-age=60',
+46 silly registry.get     'content-length': '70871',
+46 silly registry.get     'accept-ranges': 'bytes',
+46 silly registry.get     via: '1.1 varnish',
+46 silly registry.get     age: '45',
+46 silly registry.get     'x-served-by': 'cache-iad2130-IAD',
+46 silly registry.get     'x-cache': 'HIT',
+46 silly registry.get     'x-cache-hits': '1',
+46 silly registry.get     'x-timer': 'S1418199300.211261,VS0,VE0',
+46 silly registry.get     vary: 'Accept',
+46 silly registry.get     'keep-alive': 'timeout=10, max=50',
+46 silly registry.get     connection: 'Keep-Alive' } ]
+47 silly addNameRange number 2 { name: 'forever', range: '*', hasData: true }
+48 silly addNameRange versions [ 'forever',
+48 silly addNameRange   [ '0.6.0',
+48 silly addNameRange     '0.6.1',
+48 silly addNameRange     '0.6.2',
+48 silly addNameRange     '0.6.3',
+48 silly addNameRange     '0.6.4',
+48 silly addNameRange     '0.6.5',
+48 silly addNameRange     '0.6.6',
+48 silly addNameRange     '0.6.7',
+48 silly addNameRange     '0.6.8',
+48 silly addNameRange     '0.6.9',
+48 silly addNameRange     '0.7.0',
+48 silly addNameRange     '0.7.1',
+48 silly addNameRange     '0.7.2',
+48 silly addNameRange     '0.7.3',
+48 silly addNameRange     '0.7.4',
+48 silly addNameRange     '0.7.5',
+48 silly addNameRange     '0.8.0',
+48 silly addNameRange     '0.8.1',
+48 silly addNameRange     '0.8.2',
+48 silly addNameRange     '0.8.3',
+48 silly addNameRange     '0.8.4',
+48 silly addNameRange     '0.8.5',
+48 silly addNameRange     '0.9.0',
+48 silly addNameRange     '0.9.1',
+48 silly addNameRange     '0.9.2',
+48 silly addNameRange     '0.10.0',
+48 silly addNameRange     '0.10.5',
+48 silly addNameRange     '0.10.6',
+48 silly addNameRange     '0.10.7',
+48 silly addNameRange     '0.10.8',
+48 silly addNameRange     '0.10.9',
+48 silly addNameRange     '0.10.10',
+48 silly addNameRange     '0.10.11',
+48 silly addNameRange     '0.11.0',
+48 silly addNameRange     '0.11.1',
+48 silly addNameRange     '0.12.0',
+48 silly addNameRange     '0.13.0' ] ]
+49 verbose addNamed [ 'forever', '0.13.0' ]
+50 verbose addNamed [ '0.13.0', '0.13.0' ]
+51 silly lockFile a664d5a5-forever-0-13-0 forever@0.13.0
+52 verbose lock forever@0.13.0 /Users/jeremygoldman/.npm/a664d5a5-forever-0-13-0.lock
+53 silly lockFile 9b60d490-s-org-forever-forever-0-13-0-tgz https://registry.npmjs.org/forever/-/forever-0.13.0.tgz
+54 verbose lock https://registry.npmjs.org/forever/-/forever-0.13.0.tgz /Users/jeremygoldman/.npm/9b60d490-s-org-forever-forever-0-13-0-tgz.lock
+55 verbose addRemoteTarball [ 'https://registry.npmjs.org/forever/-/forever-0.13.0.tgz',
+55 verbose addRemoteTarball   '30857921b37994295a23ca1266628fb3aa2c2c00' ]
+56 info retry fetch attempt 1 at 03:14:59
+57 verbose fetch to= /var/folders/sc/tt07vvqs0535vk2wmgp41nlw0000gn/T/npm-8376-QOnFEo8o/registry.npmjs.org/forever/-/forever-0.13.0.tgz
+58 http GET https://registry.npmjs.org/forever/-/forever-0.13.0.tgz
+59 http 200 https://registry.npmjs.org/forever/-/forever-0.13.0.tgz
+60 silly lockFile 9b60d490-s-org-forever-forever-0-13-0-tgz https://registry.npmjs.org/forever/-/forever-0.13.0.tgz
+61 silly lockFile 9b60d490-s-org-forever-forever-0-13-0-tgz https://registry.npmjs.org/forever/-/forever-0.13.0.tgz
+62 silly lockFile a664d5a5-forever-0-13-0 forever@0.13.0
+63 silly lockFile a664d5a5-forever-0-13-0 forever@0.13.0
+64 silly lockFile 28ef027b-forever forever@
+65 silly lockFile 28ef027b-forever forever@
+66 http 200 https://registry.npmjs.org/nodemon
+67 silly registry.get cb [ 200,
+67 silly registry.get   { date: 'Wed, 10 Dec 2014 08:15:00 GMT',
+67 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+67 silly registry.get     etag: '"EZ5TYU9AC32J2LC0GNDSLFOP0"',
+67 silly registry.get     'content-type': 'application/json',
+67 silly registry.get     'cache-control': 'max-age=60',
+67 silly registry.get     'content-length': '134279',
+67 silly registry.get     'accept-ranges': 'bytes',
+67 silly registry.get     via: '1.1 varnish',
+67 silly registry.get     age: '0',
+67 silly registry.get     'x-served-by': 'cache-iad2136-IAD',
+67 silly registry.get     'x-cache': 'HIT',
+67 silly registry.get     'x-cache-hits': '1',
+67 silly registry.get     'x-timer': 'S1418199300.207245,VS0,VE351',
+67 silly registry.get     vary: 'Accept',
+67 silly registry.get     'keep-alive': 'timeout=10, max=50',
+67 silly registry.get     connection: 'Keep-Alive' } ]
+68 silly addNameRange number 2 { name: 'nodemon', range: '*', hasData: true }
+69 silly addNameRange versions [ 'nodemon',
+69 silly addNameRange   [ '0.1.4',
+69 silly addNameRange     '0.1.5',
+69 silly addNameRange     '0.1.6',
+69 silly addNameRange     '0.1.7',
+69 silly addNameRange     '0.1.8',
+69 silly addNameRange     '0.2.0',
+69 silly addNameRange     '0.2.1',
+69 silly addNameRange     '0.2.2',
+69 silly addNameRange     '0.3.0',
+69 silly addNameRange     '0.3.1',
+69 silly addNameRange     '0.3.2',
+69 silly addNameRange     '0.4.0',
+69 silly addNameRange     '0.4.1',
+69 silly addNameRange     '0.5.0',
+69 silly addNameRange     '0.5.1',
+69 silly addNameRange     '0.5.2',
+69 silly addNameRange     '0.5.3',
+69 silly addNameRange     '0.5.4',
+69 silly addNameRange     '0.5.5',
+69 silly addNameRange     '0.5.6',
+69 silly addNameRange     '0.5.7',
+69 silly addNameRange     '0.6.0',
+69 silly addNameRange     '0.6.1',
+69 silly addNameRange     '0.6.2',
+69 silly addNameRange     '0.6.3',
+69 silly addNameRange     '0.6.4',
+69 silly addNameRange     '0.6.5',
+69 silly addNameRange     '0.6.6',
+69 silly addNameRange     '0.6.7',
+69 silly addNameRange     '0.6.8',
+69 silly addNameRange     '0.6.9',
+69 silly addNameRange     '0.6.10',
+69 silly addNameRange     '0.6.11',
+69 silly addNameRange     '0.6.12',
+69 silly addNameRange     '0.6.13',
+69 silly addNameRange     '0.6.14',
+69 silly addNameRange     '0.6.15',
+69 silly addNameRange     '0.6.16',
+69 silly addNameRange     '0.6.17',
+69 silly addNameRange     '0.6.18',
+69 silly addNameRange     '0.6.19',
+69 silly addNameRange     '0.6.20',
+69 silly addNameRange     '0.6.21',
+69 silly addNameRange     '0.6.22',
+69 silly addNameRange     '0.6.23',
+69 silly addNameRange     '0.7.0',
+69 silly addNameRange     '0.7.1',
+69 silly addNameRange     '0.7.2',
+69 silly addNameRange     '0.7.3',
+69 silly addNameRange     '0.7.4',
+69 silly addNameRange     '0.7.5',
+69 silly addNameRange     '0.7.6',
+69 silly addNameRange     '0.7.7',
+69 silly addNameRange     '0.7.8',
+69 silly addNameRange     '0.7.10',
+69 silly addNameRange     '0.9.0',
+69 silly addNameRange     '0.9.1',
+69 silly addNameRange     '0.9.2',
+69 silly addNameRange     '0.9.3',
+69 silly addNameRange     '0.9.5',
+69 silly addNameRange     '0.9.6',
+69 silly addNameRange     '0.9.7',
+69 silly addNameRange     '0.9.10',
+69 silly addNameRange     '0.9.11',
+69 silly addNameRange     '0.9.12',
+69 silly addNameRange     '0.9.14',
+69 silly addNameRange     '0.9.16',
+69 silly addNameRange     '0.9.17',
+69 silly addNameRange     '1.0.0',
+69 silly addNameRange     '1.0.1',
+69 silly addNameRange     '1.0.2',
+69 silly addNameRange     '1.0.2-rc',
+69 silly addNameRange     '0.6.10-a',
+69 silly addNameRange     '1.0.2-rc3',
+69 silly addNameRange     '1.0.2-rc4',
+69 silly addNameRange     '1.0.3',
+69 silly addNameRange     '1.0.4',
+69 silly addNameRange     '1.0.5',
+69 silly addNameRange     '1.0.6',
+69 silly addNameRange     '1.0.7',
+69 silly addNameRange     '1.0.8',
+69 silly addNameRange     '1.0.9',
+69 silly addNameRange     '1.0.10',
+69 silly addNameRange     '1.0.11',
+69 silly addNameRange     '1.0.12',
+69 silly addNameRange     '1.0.13',
+69 silly addNameRange     '1.0.14',
+69 silly addNameRange     '1.0.15',
+69 silly addNameRange     '1.0.16',
+69 silly addNameRange     '1.0.17-rc1',
+69 silly addNameRange     '1.0.17-rc2',
+69 silly addNameRange     '1.0.17',
+69 silly addNameRange     '1.0.18',
+69 silly addNameRange     '1.0.19',
+69 silly addNameRange     '1.0.20',
+69 silly addNameRange     '1.1.0-alpha',
+69 silly addNameRange     '1.1.0',
+69 silly addNameRange     '1.1.1',
+69 silly addNameRange     '1.2.0',
+69 silly addNameRange     '1.2.1',
+69 silly addNameRange     '1.3.0-0',
+69 silly addNameRange     '1.3.0-1',
+69 silly addNameRange     '1.3.0-2',
+69 silly addNameRange     '1.3.0-3',
+69 silly addNameRange     '1.3.0-4',
+69 silly addNameRange     '1.3.0-5',
+69 silly addNameRange     '1.3.0-6' ] ]
+70 verbose addNamed [ 'nodemon', '1.2.1' ]
+71 verbose addNamed [ '1.2.1', '1.2.1' ]
+72 silly lockFile 891e98f0-nodemon-1-2-1 nodemon@1.2.1
+73 verbose lock nodemon@1.2.1 /Users/jeremygoldman/.npm/891e98f0-nodemon-1-2-1.lock
+74 silly lockFile 85afaeac-js-org-nodemon-nodemon-1-2-1-tgz https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+75 verbose lock https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz /Users/jeremygoldman/.npm/85afaeac-js-org-nodemon-nodemon-1-2-1-tgz.lock
+76 verbose addRemoteTarball [ 'https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz',
+76 verbose addRemoteTarball   '02a288045652e92350e7d752a8054472ed2c4824' ]
+77 info retry fetch attempt 1 at 03:14:59
+78 verbose fetch to= /var/folders/sc/tt07vvqs0535vk2wmgp41nlw0000gn/T/npm-8376-QOnFEo8o/registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+79 http GET https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+80 http 200 https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+81 silly lockFile 85afaeac-js-org-nodemon-nodemon-1-2-1-tgz https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+82 silly lockFile 85afaeac-js-org-nodemon-nodemon-1-2-1-tgz https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz
+83 silly lockFile 891e98f0-nodemon-1-2-1 nodemon@1.2.1
+84 silly lockFile 891e98f0-nodemon-1-2-1 nodemon@1.2.1
+85 silly lockFile 4f5e51c6-nodemon nodemon@
+86 silly lockFile 4f5e51c6-nodemon nodemon@
+87 silly resolved [ { name: 'forever',
+87 silly resolved     preferGlobal: 'true',
+87 silly resolved     description: 'A simple CLI tool for ensuring that a given node script runs continuously (i.e. forever)',
+87 silly resolved     version: '0.13.0',
+87 silly resolved     author: { name: 'Charlie Robbins', email: 'charlie.robbins@gmail.com' },
+87 silly resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+87 silly resolved     repository: { type: 'git', url: 'http://github.com/nodejitsu/forever.git' },
+87 silly resolved     keywords: [ 'cli', 'fault tolerant', 'sysadmin', 'tools' ],
+87 silly resolved     dependencies:
+87 silly resolved      { colors: '~0.6.2',
+87 silly resolved        cliff: '~0.1.9',
+87 silly resolved        flatiron: '~0.4.2',
+87 silly resolved        'forever-monitor': '~1.5.1',
+87 silly resolved        nconf: '~0.6.9',
+87 silly resolved        nssocket: '~0.5.1',
+87 silly resolved        optimist: '~0.6.0',
+87 silly resolved        timespan: '~2.3.0',
+87 silly resolved        utile: '~0.2.1',
+87 silly resolved        winston: '~0.8.1' },
+87 silly resolved     devDependencies:
+87 silly resolved      { broadway: '~0.3.6',
+87 silly resolved        eventemitter2: '0.4.x',
+87 silly resolved        request: '2.x.x',
+87 silly resolved        vows: '0.7.x' },
+87 silly resolved     bin: { forever: './bin/forever' },
+87 silly resolved     main: './lib/forever',
+87 silly resolved     scripts: { test: 'vows test/**/*-test.js --spec -i' },
+87 silly resolved     engines: { node: '>= 0.8.x' },
+87 silly resolved     gitHead: '8707877ab7b95e011c5216d54b22d561f60b45c6',
+87 silly resolved     bugs: { url: 'https://github.com/nodejitsu/forever/issues' },
+87 silly resolved     homepage: 'https://github.com/nodejitsu/forever',
+87 silly resolved     _id: 'forever@0.13.0',
+87 silly resolved     _shasum: '30857921b37994295a23ca1266628fb3aa2c2c00',
+87 silly resolved     _from: 'forever@',
+87 silly resolved     _npmVersion: '2.1.7',
+87 silly resolved     _nodeVersion: '0.10.33',
+87 silly resolved     _npmUser: { name: 'indexzero', email: 'charlie.robbins@gmail.com' },
+87 silly resolved     dist:
+87 silly resolved      { shasum: '30857921b37994295a23ca1266628fb3aa2c2c00',
+87 silly resolved        tarball: 'http://registry.npmjs.org/forever/-/forever-0.13.0.tgz' },
+87 silly resolved     directories: {},
+87 silly resolved     _resolved: 'https://registry.npmjs.org/forever/-/forever-0.13.0.tgz' },
+87 silly resolved   { name: 'nodemon',
+87 silly resolved     homepage: 'http://nodemon.io',
+87 silly resolved     author: { name: 'Remy Sharp', url: 'http://github.com/remy' },
+87 silly resolved     bin: { nodemon: './bin/nodemon.js' },
+87 silly resolved     engines: { node: '>=0.8' },
+87 silly resolved     repository: { type: 'git', url: 'http://github.com/remy/nodemon.git' },
+87 silly resolved     description: 'Simple monitor script for use during development of a node.js app.',
+87 silly resolved     keywords:
+87 silly resolved      [ 'monitor',
+87 silly resolved        'development',
+87 silly resolved        'restart',
+87 silly resolved        'autoload',
+87 silly resolved        'reload',
+87 silly resolved        'terminal' ],
+87 silly resolved     version: '1.2.1',
+87 silly resolved     preferGlobal: 'true',
+87 silly resolved     licenses: [ [Object] ],
+87 silly resolved     main: './lib/nodemon',
+87 silly resolved     scripts:
+87 silly resolved      { coverage: 'istanbul cover _mocha -- --timeout 30000 --ui bdd --reporter list test/**/*.test.js',
+87 silly resolved        test: 'node_modules/mocha/bin/_mocha --timeout 30000 --ui bdd test/**/*.test.js',
+87 silly resolved        web: 'node web' },
+87 silly resolved     devDependencies:
+87 silly resolved      { connect: '~2.19.1',
+87 silly resolved        mocha: '~1.20.0',
+87 silly resolved        should: '~4.0.0',
+87 silly resolved        istanbul: '~0.2.10',
+87 silly resolved        touch: '~0.0.3',
+87 silly resolved        'coffee-script': '~1.7.1' },
+87 silly resolved     dependencies:
+87 silly resolved      { 'update-notifier': '~0.1.8',
+87 silly resolved        minimatch: '~0.3.0',
+87 silly resolved        'ps-tree': '~0.0.3' },
+87 silly resolved     bugs: { url: 'https://github.com/remy/nodemon/issues' },
+87 silly resolved     _id: 'nodemon@1.2.1',
+87 silly resolved     dist:
+87 silly resolved      { shasum: '02a288045652e92350e7d752a8054472ed2c4824',
+87 silly resolved        tarball: 'http://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz' },
+87 silly resolved     _from: 'nodemon@',
+87 silly resolved     _npmVersion: '1.3.24',
+87 silly resolved     _npmUser: { name: 'remy', email: 'remy@remysharp.com' },
+87 silly resolved     maintainers: [ [Object] ],
+87 silly resolved     directories: {},
+87 silly resolved     _shasum: '02a288045652e92350e7d752a8054472ed2c4824',
+87 silly resolved     _resolved: 'https://registry.npmjs.org/nodemon/-/nodemon-1.2.1.tgz' } ]
+88 info install forever@0.13.0 into /usr/local/lib
+89 info install nodemon@1.2.1 into /usr/local/lib
+90 info installOne forever@0.13.0
+91 info installOne nodemon@1.2.1
+92 verbose lib/node_modules/forever unbuild
+93 verbose lib/node_modules/nodemon unbuild
+94 verbose tar unpack /Users/jeremygoldman/.npm/forever/0.13.0/package.tgz
+95 silly lockFile 5fd21e72-r-local-lib-node-modules-forever tar:///usr/local/lib/node_modules/forever
+96 verbose lock tar:///usr/local/lib/node_modules/forever /Users/jeremygoldman/.npm/5fd21e72-r-local-lib-node-modules-forever.lock
+97 silly lockFile 6a8b76f8-n-npm-forever-0-13-0-package-tgz tar:///Users/jeremygoldman/.npm/forever/0.13.0/package.tgz
+98 verbose lock tar:///Users/jeremygoldman/.npm/forever/0.13.0/package.tgz /Users/jeremygoldman/.npm/6a8b76f8-n-npm-forever-0-13-0-package-tgz.lock
+99 verbose tar unpack /Users/jeremygoldman/.npm/nodemon/1.2.1/package.tgz
+100 silly lockFile 15c6d46c-r-local-lib-node-modules-nodemon tar:///usr/local/lib/node_modules/nodemon
+101 verbose lock tar:///usr/local/lib/node_modules/nodemon /Users/jeremygoldman/.npm/15c6d46c-r-local-lib-node-modules-nodemon.lock
+102 silly lockFile 9de04d8b-an-npm-nodemon-1-2-1-package-tgz tar:///Users/jeremygoldman/.npm/nodemon/1.2.1/package.tgz
+103 verbose lock tar:///Users/jeremygoldman/.npm/nodemon/1.2.1/package.tgz /Users/jeremygoldman/.npm/9de04d8b-an-npm-nodemon-1-2-1-package-tgz.lock
+104 silly gunzTarPerm modes [ '755', '644' ]
+105 silly gunzTarPerm modes [ '755', '644' ]
+106 error Error: EACCES, mkdir '/usr/local/lib/node_modules/forever'
+106 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/forever']
+106 error   errno: 3,
+106 error   code: 'EACCES',
+106 error   path: '/usr/local/lib/node_modules/forever',
+106 error   fstream_type: 'Directory',
+106 error   fstream_path: '/usr/local/lib/node_modules/forever',
+106 error   fstream_class: 'DirWriter',
+106 error   fstream_stack:
+106 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+106 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+106 error      'Object.oncomplete (fs.js:107:15)' ] }
+107 error Please try running this command again as root/Administrator.
+108 error System Darwin 13.4.0
+109 error command "node" "/usr/local/bin/npm" "install" "forever" "-g" "nodemon"
+110 error cwd /Users/jeremygoldman/Desktop/code/comp20/comp20-f2014-team8/Backend
+111 error node -v v0.10.33
+112 error npm -v 1.4.28
+113 error path /usr/local/lib/node_modules/forever
+114 error fstream_path /usr/local/lib/node_modules/forever
+115 error fstream_type Directory
+116 error fstream_class DirWriter
+117 error code EACCES
+118 error errno 3
+119 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/forever'
+120 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+120 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+120 error fstream_stack Object.oncomplete (fs.js:107:15)
+121 verbose exit [ 3, true ]
