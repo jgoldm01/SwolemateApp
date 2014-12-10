@@ -124,16 +124,19 @@ module.exports = function (app) {
 		  return res.redirect('/?error=nologin');
 	  }
     
-    Swolemate.postMatchingParams(req, echoJSON);
+    Swolemate.postMatchingParams(req, sendSuccess);
 
-	  function echoJSON (err, finalJSON) {
+	  function sendSuccess (err, numChanged, raw) {
 		  if (err) {
 		    res.status(500);
 		    return res.json(err);
 		  }
       else {
-        finalJSON.success=true;
-        finalJSON.message="Success!";
+        var finalJSON = {
+          success: true,
+          raw: raw,
+          message: "Working..."
+        }
 		    return res.json(finalJSON);
       }
 	  }
