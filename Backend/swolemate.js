@@ -2,6 +2,7 @@ var Account = require('./models/account');
 
 var Swolationship = require('./models/swolationship');
 var MatchingParams = require('./models/matchingparams');
+var Goal = require('./models/goal');
 
 module.exports = function(app) {
 	return {
@@ -43,6 +44,13 @@ module.exports = function(app) {
 			var idRequested = req.params['id'];
 			var updatedGoal = req.body;
 			Goal.update({_id: idRequested}, updatedGoal, {}, callback);
+		},
+
+		removeGoal: function(req, callback) {
+			var idRequested = req.params['id'];
+			Goal.find({_id: idRequested}).remove().exec(function (err, results) {
+				callback(results);
+			});
 		},
 
 		createDashboardForUser: function (currentUser, callback) {

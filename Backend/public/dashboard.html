@@ -8,6 +8,8 @@
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <!-- Custom css -->
   <link href="css/dashboard.css" rel="stylesheet">
 
@@ -93,17 +95,21 @@
          <br></br>
          <h4>Current Goals:<h4> <!-- click on the ones you've completed-->
           <div ng-repeat="goal in goals"> <!--swolemate 1-->
-            <form ng-submit="completeGoal(goal._id, goal)">
-              <div ng-if="!goal.complete">
-                <i>{{goal.name}} </i> 
-                <button href="dashboard.html" class="btn" id="goal" 
-                type="submit"> 
-                Complete
-              </button>
+            <div ng-if="!goal.complete">
+            <span class="goalname completed"> {{goal.name}} </span>
+              <form ng-submit="completeGoal(goal._id, goal)">
+                <button class="btn btn-success" id="goal" type="submit"> 
+                  <i class="fa fa-check-square-o"></i>
+                </button>
+              </form>
+              <form ng-submit="deleteGoal(goal._id, goal)">
+                <button class="btn btn-danger" id="goal" type="submit"> 
+                  <i class="fa fa-trash"></i>
+                </button>
+              </form>
             </div>
-          </form>
-        </div>
-      </br></br>
+          </div>
+        </br></br>
 
 
     </div> <!--closing tag for swolelationship column -->
@@ -115,13 +121,13 @@
       
 
       <div> <!--Div for settings section -->
-        <br><br>
-        <p><b>Exercise:</b></p>
+        <br>
+        <p><h4>Exercise:</h4></p>
         <div>
           <p> {{user.matching_params.focus}}
           </div>
 
-          <p><b>Frequency:</b></p>
+          <p><h4>Frequency:</h4></p>
           <div>
             <p> {{user.matching_params.frequency}}
             </div>
@@ -146,7 +152,7 @@
 
 
         </br></br>
-        <a class="btn btn-lg btn-primary" href="gymsnearme.html" role="button">Find Gyms Near Me</a>
+        <a class="btn btn-primary" href="gymsnearme.html" role="button">Find Gyms Near Me</a>
 
 
 

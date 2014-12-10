@@ -7,3 +7,12 @@ body {
   width: 100%;
 }
 
+.goalname {
+  font-style: italic;
+}
+
+.goalname .completed{
+  text-decoration: line-through;
+}
+
+form, table {display:inline; margin:0px; padding:0px;}

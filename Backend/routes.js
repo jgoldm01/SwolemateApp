@@ -289,6 +289,23 @@ module.exports = function (app) {
     Swolemate.updateGoal(req, sendSuccess);
   });
 
+  app.delete('/api/swolationship/goal/:id', function(req, res) {
+    if (!req.user) {
+      return res.redirect('/?error=nologin');
+    }
+
+    function sendSuccess (err, raw) {
+      if (err) {res.status(500); return res.json(err);}
+      var finalJSON = {
+          success: true,
+          raw: raw,
+          message: "Working..."
+        }
+        return res.json(finalJSON);
+     }
+
+    Swolemate.removeGoal(req, sendSuccess);
+  });
 
 
   app.get('/api/swolationship/:id', function(req, res){

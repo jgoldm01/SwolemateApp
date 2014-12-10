@@ -5,16 +5,25 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
   $scope.formData = {};
 
   $scope.addGoal = function() {
-    console.dir($scope.formData);
-    $http.post('api/swolationship/goal', {name: $scope.formData.newGoal})
+    $http.post('api/swolationship/goal', {name: $scope.formData.newGoal});
+    $scope.formData.newGoal = '';
+    setTimeout(refreshGoals, 500);
   }
 
   $scope.completeGoal = function(id, goal) {
-    str = 'api/swolationship/goal/:'+id;
-    $http.put(str, goal)
+    str = 'api/swolationship/goal/'+id;
+    $http.put(str, goal);
+    refreshGoals();
   }
 
-  $http.get('api/swolationship/goal').success(function(data) {
+  $scope.deleteGoal = function(id, goal) {
+    str = 'api/swolationship/goal/'+id;
+    $http.delete(str, goal);
+    refreshGoals();
+  }
+
+  function refreshGoals () {
+    $http.get('api/swolationship/goal').success(function(data) {
     $scope.goals = data;
     for (key in $scope.goals) {
       if (key.complete) {
@@ -24,7 +33,8 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
       }
     }
   })
-
+  }
+  refreshGoals();
 
   $http.get('api/swolationship').success(function(data) {
     $scope.swolationship = data;
