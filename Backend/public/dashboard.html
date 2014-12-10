@@ -144,7 +144,14 @@
 	<!--START goal history column -->
         <div class="col-md-4">
           <p>Goal History</p>
-          <img style="max-width:200px;" src="img/success.jpg" alt="the journey of a thousand miles begins with a single step">
+            <button onclick="updateData(1)">Goal Completed!</button>
+            <button onclick="updateData(0)">New Goal!</button>
+
+            <div id="chart_div" style="width: 900px; height: 300px;"></div>
+
+            <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="js/goalchart.js"></script>
           <br/><br/>
 
 	  <p>Completed Goals</p>
