@@ -73,9 +73,9 @@ dashBoard.controller('dashBoardCtrl', function ($scope, $http) {
   //   }
   // })
 
-  $http.get('api/swolationship').success(function(data) {
-    $scope.swolationship = data;
-  })
+  // $http.get('api/swolationship').success(function(data) {
+  //   $scope.swolationship = data;
+  // })
 
   // $http.get('api/user').success(function(data) {
   //   $scope.user = data;
