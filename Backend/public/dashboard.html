@@ -88,6 +88,10 @@
               <button class="buttonsubmitgoal" type="submit">Submit Goal</button>
 
 	      <p>Current goals</p>
+        <div ng-repeat="goal in completedGoals"> <!--swolemate 1-->
+          <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> {{goal.name}} - {{goal.body}}</label>
+        </div>
 	      </br></br> <!--probably not the best way to style -->
 	      <p>Messages</p>
 
