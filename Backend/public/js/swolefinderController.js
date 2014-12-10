@@ -16,8 +16,8 @@ swoleMateFinder.controller('swoleMateFinderCtrl', function ($scope, $http) {
 	 // 	 'distance': '5 inches'}
 	 //  ];
 
-  $scope.selectswolemate = function(name) {
-  	$http.post('api/chooseswolemate', {"username": name})
+  $scope.selectswolemate = function(username) {
+  	$http.post('api/chooseswolemate', {"username": username})
   	window.location.replace("dashboard.html");
   }
 	
